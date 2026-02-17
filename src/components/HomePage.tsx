@@ -789,7 +789,7 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} Novamed Ingeniería. Todos los derechos reservados.
           </p>
           <p className="flex items-center justify-center gap-1">
-            Desarrollado por <Heart className="h-3 w-3 text-red-400" /> Novamed Ingeiería S.A.S
+            Desarrollado por <Heart className="h-3 w-3 text-red-400" /> Novamed Ingeniería S.A.S
           </p>
         </motion.div>
       </div>
