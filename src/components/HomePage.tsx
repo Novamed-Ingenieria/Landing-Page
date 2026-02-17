@@ -672,8 +672,8 @@ export const Footer = () => {
     { 
       icon: '✉️', 
       label: 'Email', 
-      href: 'mailto:novamedingeniera@gmail.com',
-      text: 'novamedingeniera@gmail.com'
+      href: 'mailto:novamedingenieria@gmail.com',
+      text: 'novamedingenieria@gmail.com'
     },
     { 
       icon: '💬', 
@@ -685,7 +685,7 @@ export const Footer = () => {
       icon: '📸', 
       label: 'Instagram', 
       href: 'https://instagram.com/novamedingenieria',
-      text: '@novamedingeniera'
+      text: '@novamedingenieria'
     },
   ];
 
