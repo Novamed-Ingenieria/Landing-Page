@@ -1,0 +1,259 @@
+export const site = {
+  legalName: 'Novamed Ingeniería S.A.S.',
+  url: 'https://www.novamedingenieria.com',
+  appUrl: 'https://app.novamedingenieria.com',
+  phone: '+57 322 694 2370',
+  phoneHref: 'tel:+573226942370',
+  whatsapp: 'https://wa.me/573226942370',
+  email: 'novamedingenieria@gmail.com',
+  instagram: 'https://www.instagram.com/novamedingenieria',
+  instagramHandle: '@novamedingenieria',
+};
+
+export const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/plataforma', label: 'Plataforma' },
+  { href: '/planes', label: 'Planes' },
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/contacto', label: 'Contacto' },
+];
+
+export const plans = [
+  {
+    id: 'lite',
+    name: 'Lite',
+    price: '$36.900',
+    period: 'COP / mes',
+    tagline: 'Para iniciar la gestión de tu tecnología.',
+    users: '1 usuario',
+    assets: 'Hasta 20 activos',
+    popular: false,
+    cta: 'Elegir Lite',
+    features: [
+      'Inventario de equipos',
+      'Hojas de vida',
+      'Gestión documental',
+      'Códigos QR',
+      'Dashboard',
+      'Configuración inicial',
+    ],
+    highlight: [],
+  },
+  {
+    id: 'basic',
+    name: 'Standard',
+    price: '$69.900',
+    period: 'COP / mes',
+    tagline: 'Para consultorios y equipos pequeños.',
+    users: '3 usuarios',
+    assets: 'Hasta 150 activos',
+    popular: true,
+    cta: 'Elegir Standard',
+    features: [
+      'Inventario de equipos',
+      'Hojas de vida',
+      'Gestión documental',
+      'Cronograma',
+      'Alertas de vencimientos',
+      'Códigos QR',
+      'Dashboard',
+      'Configuración inicial',
+      'Capacitación',
+    ],
+    highlight: ['Cronograma', 'Alertas de vencimientos'],
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    price: '$149.900',
+    period: 'COP / mes',
+    tagline: 'Para clínicas e IPS en crecimiento.',
+    users: '6 usuarios',
+    assets: 'Hasta 500 activos',
+    popular: false,
+    cta: 'Elegir Pro',
+    features: [
+      'Inventario de equipos',
+      'Hojas de vida',
+      'Gestión documental',
+      'Cronograma',
+      'Indicadores de gestión',
+      'Alertas de vencimientos',
+      'Códigos QR',
+      'Dashboard',
+      'Configuración inicial',
+      'Capacitación',
+      'Acompañamiento',
+    ],
+    highlight: ['Indicadores de gestión', 'Acompañamiento'],
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    price: '$299.900',
+    period: 'COP / mes',
+    tagline: 'Para instituciones de gran escala.',
+    users: '10 usuarios',
+    assets: 'Hasta 2.000 activos',
+    popular: false,
+    cta: 'Elegir Enterprise',
+    features: [
+      'Inventario de equipos',
+      'Hojas de vida',
+      'Gestión documental',
+      'Cronograma',
+      'Indicadores de gestión',
+      'Alertas de vencimientos',
+      'Códigos QR',
+      'Dashboard',
+      'Kit documental',
+      'Configuración inicial',
+      'Capacitación',
+      'Acompañamiento',
+      'Soporte priorizado',
+    ],
+    highlight: ['Kit documental', 'Soporte priorizado'],
+  },
+];
+
+export const comparisonFeatures = Array.from(
+  new Set(plans.flatMap((p) => p.features)),
+);
+
+export type PlatformFunction = {
+  id: string;
+  icon: string;
+  title: string;
+  short: string;
+  description: string;
+};
+
+export const platformFunctions: PlatformFunction[] = [
+  {
+    id: 'trazabilidad',
+    icon: 'network',
+    title: 'Trazabilidad conectada',
+    short: 'Actualiza la información una vez y mantenla disponible en toda la plataforma.',
+    description:
+      'Cuando cambia la ubicación, el estado o un dato de un equipo, la información relacionada permanece sincronizada: inventario, hoja de vida, cronograma y registros. Sin duplicar trabajo ni actualizar documentos por separado.',
+  },
+  {
+    id: 'qr',
+    icon: 'qr',
+    title: 'Identificación mediante QR',
+    short: 'Accede rápidamente a la información de cada equipo desde cualquier lugar.',
+    description:
+      'Escanea el código QR de un equipo y accede de inmediato a su hoja de vida, reportes, manuales e información de calibración o verificación cuando corresponda.',
+  },
+  {
+    id: 'novedades',
+    icon: 'alert',
+    title: 'Reporte de novedades',
+    short: 'Registra novedades y mantén informado al responsable correspondiente.',
+    description:
+      'Reporta novedades asociadas a un equipo —del paciente, médica, de mantenimiento u otra incidencia— y dirígelas al responsable de la institución.',
+  },
+  {
+    id: 'ordenes',
+    icon: 'wrench',
+    title: 'Órdenes de trabajo',
+    short: 'Asigna, realiza seguimiento y cierra las actividades relacionadas con tus equipos.',
+    description:
+      'Convierte una novedad o actividad en una orden de trabajo: asignación, responsable, seguimiento y cierre, todo desde la plataforma.',
+  },
+  {
+    id: 'cumplimiento',
+    icon: 'shield',
+    title: 'Control y cumplimiento',
+    short: 'Organiza procesos, trazabilidad y documentación para facilitar el cumplimiento.',
+    description:
+      'Facilita la organización de inventario, documentación, seguimiento y auditoría para los procesos de habilitación y gestión de tecnología.',
+  },
+];
+
+export const services = [
+  {
+    name: 'Mantenimiento',
+    short: 'Preventivo, correctivo y predictivo',
+    description:
+      'Mantenimiento de equipos biomédicos orientado a preservar su correcto funcionamiento y disponibilidad, con registro de cada intervención.',
+    image: '/images/Mantenimiento.jpg',
+    items: [
+      'Mantenimiento preventivo',
+      'Mantenimiento correctivo',
+      'Mantenimiento predictivo',
+      'Registro técnico de cada intervención',
+    ],
+  },
+  {
+    name: 'Verificación metrológica',
+    short: 'Precisión en las variables que importan',
+    description:
+      'Servicios de verificación de variables para asegurar la confiabilidad de los equipos de medición y uso clínico.',
+    image: '/images/Metrologia.jpg',
+    items: [
+      'Presión',
+      'Temperatura',
+      'Humedad',
+      'Peso',
+      'Flujo',
+      'Volumen',
+      'Velocidad angular',
+      'Energía',
+      'Longitud',
+      'Saturación de oxígeno',
+    ],
+  },
+  {
+    name: 'Comercialización',
+    short: 'Dispositivos, accesorios y repuestos',
+    description:
+      'Comercialización de dispositivos, accesorios y repuestos para equipos de diagnóstico, soporte vital, laboratorio e imagenología.',
+    image: '/images/Comercializacion.jpg',
+    items: [
+      'Dispositivos médicos',
+      'Accesorios',
+      'Repuestos especializados',
+      'Acompañamiento en la selección',
+    ],
+  },
+];
+
+export const faqs = [
+  {
+    question: '¿Qué es la plataforma de Novamed Ingeniería?',
+    answer:
+      'Es una plataforma para la gestión de tecnología biomédica: centraliza el inventario, las hojas de vida, los cronogramas, la gestión documental y los indicadores de tus equipos, conectando su trazabilidad en un solo lugar.',
+  },
+  {
+    question: '¿Qué incluye una demostración?',
+    answer:
+      'Un recorrido guiado por la plataforma según las necesidades de tu institución: inventario, trazabilidad, QR, órdenes de trabajo y control documental. Sin compromiso.',
+  },
+  {
+    question: '¿Los precios son públicos?',
+    answer:
+      'Sí. Puedes revisar todos los planes y sus precios en la página de Planes. No es necesario registrarse para conocerlos.',
+  },
+  {
+    question: '¿La plataforma reemplaza el mantenimiento de los equipos?',
+    answer:
+       'No. La plataforma gestiona la información y la trazabilidad de la tecnología. El mantenimiento, la verificación metrológica y la comercialización son servicios técnicos que Novamed Ingeniería ofrece de forma complementaria.',
+  },
+  {
+    question: '¿Cómo accedo a la información de un equipo?',
+    answer:
+      'Cada equipo puede contar con un código QR. Al escanearlo accedes a su hoja de vida, reportes, manuales e información relevante desde cualquier dispositivo.',
+  },
+  {
+    question: '¿En qué sectores trabaja Novamed Ingeniería?',
+    answer:
+      'Principalmente en los sectores salud y veterinario: IPS, clínicas, consultorios, laboratorios, centros veterinarios y profesionales que gestionan tecnología biomédica.',
+  },
+  {
+    question: '¿Cómo solicito una demostración?',
+    answer:
+      'Usa la agenda en la página de Contacto, escríbenos por WhatsApp al +57 322 694 2370 o al correo novamedingenieria@gmail.com.',
+  },
+];
