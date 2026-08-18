@@ -10,29 +10,59 @@ const clients = [
   { logo: '/clientes/world fitness.png', alt: 'World Fitness' },
 ];
 
+function LogoSet() {
+  return (
+    <div className="flex shrink-0 gap-6 pr-6">
+      {clients.map((c, i) => (
+        <div
+          key={i}
+          className="group flex h-28 w-48 shrink-0 cursor-pointer items-center justify-center rounded-2xl border border-brand-dark/10 bg-white px-6 shadow-[0_4px_14px_rgba(12,70,107,0.06)] transition-all duration-300 hover:border-brand-light hover:shadow-[0_14px_28px_rgba(12,70,107,0.14)]"
+        >
+          <img
+            src={c.logo}
+            alt={c.alt}
+            loading="lazy"
+            className="h-full w-full object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function ClientsSection() {
   return (
-    <section className="border-y border-brand-dark/10 bg-white px-5 py-14 md:px-8 md:py-18">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-[#f7f8f8] px-5 py-10 md:px-8 md:py-14">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue/20 via-brand-blue to-brand-blue/20 shadow-[0_4px_14px_rgba(12,70,107,0.45)]" />
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-brand-blue/20 via-brand-blue to-brand-blue/20 shadow-[0_-4px_14px_rgba(12,70,107,0.45)]" />
+      <div className="relative mx-auto max-w-7xl">
         <Reveal>
-          <p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-            Instituciones que confían en Novamed Ingeniería
-          </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-bold uppercase leading-tight tracking-tight text-brand-deep md:text-3xl">
+              Confianza que se construye
+            </h2>
+          </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-            {clients.map((c) => (
-              <img
-                key={c.alt}
-                src={c.logo}
-                alt={c.alt}
-                loading="lazy"
-                className="h-10 w-auto object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 md:h-12"
-              />
-            ))}
+          <div className="mt-6 overflow-hidden">
+            <div className="logos-track flex w-max">
+              <LogoSet />
+              <LogoSet />
+              <LogoSet />
+            </div>
           </div>
         </Reveal>
       </div>
+
+      <style>{`
+        .logos-track {
+          animation: slide-right 35s linear infinite;
+        }
+        @keyframes slide-right {
+          0% { transform: translateX(-33.333%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
     </section>
   );
 }

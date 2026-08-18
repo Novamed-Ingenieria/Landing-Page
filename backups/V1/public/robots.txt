@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /dist/
+
+Sitemap: https://www.novamedingenieria.com/sitemap.xml

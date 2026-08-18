@@ -3,6 +3,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   BellRing,
+  CircleCheck,
   QrCode,
   ShieldCheck,
   Workflow,
@@ -49,11 +50,11 @@ function TrustBar() {
 }
 
 const cardStyles = [
-  { accent: 'brand-blue', border: 'border-t-brand-blue', iconBg: 'bg-brand-blue/10', iconText: 'text-brand-blue' },
-  { accent: 'indigo', border: 'border-t-indigo', iconBg: 'bg-indigo/10', iconText: 'text-indigo' },
-  { accent: 'warn', border: 'border-t-warn', iconBg: 'bg-warn/10', iconText: 'text-warn' },
-  { accent: 'alert', border: 'border-t-alert', iconBg: 'bg-alert/10', iconText: 'text-alert' },
-  { accent: 'emerald', border: 'border-t-emerald', iconBg: 'bg-emerald/10', iconText: 'text-emerald' },
+  { accent: 'brand-blue', border: 'border-t-brand-blue', iconBg: 'bg-brand-blue/10', iconText: 'text-brand-blue', hoverBg: 'hover:bg-brand-blue/[0.04]' },
+  { accent: 'indigo', border: 'border-t-indigo', iconBg: 'bg-indigo/10', iconText: 'text-indigo', hoverBg: 'hover:bg-indigo/[0.04]' },
+  { accent: 'warn', border: 'border-t-warn', iconBg: 'bg-warn/10', iconText: 'text-warn', hoverBg: 'hover:bg-warn/[0.04]' },
+  { accent: 'alert', border: 'border-t-alert', iconBg: 'bg-alert/10', iconText: 'text-alert', hoverBg: 'hover:bg-alert/[0.04]' },
+  { accent: 'emerald', border: 'border-t-emerald', iconBg: 'bg-emerald/10', iconText: 'text-emerald', hoverBg: 'hover:bg-emerald/[0.04]' },
 ];
 
 function FunctionsSection() {
@@ -80,7 +81,7 @@ function FunctionsSection() {
                 <Reveal key={fn.id} delay={i * 0.06}>
                   <a
                     href="/plataforma"
-                    className={`group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden rounded-2xl border border-brand-dark/10 border-t-[3px] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(12,70,107,0.12)] text-brand-deep ${s.border}`}
+                    className={`group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden rounded-2xl border border-brand-dark/10 border-t-[3px] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(12,70,107,0.12)] text-brand-deep ${s.border} ${s.hoverBg}`}
                   >
                     <div className="flex items-start justify-between">
                       <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${s.iconBg} ${s.iconText}`}><Icon className="h-5 w-5" /></div>
@@ -117,11 +118,96 @@ function FunctionsSection() {
 }
 
 function ServicesSection() {
-  return <section className="relative overflow-hidden border-y border-brand-dark/20 bg-brand-deep px-5 py-20 md:px-8 md:py-28"><div className="page-grid page-grid-blue opacity-30" /><div className="relative mx-auto max-w-7xl"><SectionIntro dark eyebrow="Servicios especializados" title="La ingeniería detrás de una operación que no se detiene." description="Complementa la plataforma con conocimiento técnico para mantener tus equipos disponibles y confiables." /><div className="mt-12 grid gap-5 md:grid-cols-3">{services.map((service, i) => <Reveal key={service.name} delay={i * 0.1}><a href="/servicios" className="group block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.07] shadow-[0_6px_18px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.12] hover:shadow-[0_16px_30px_rgba(0,0,0,0.25)]"><div className="relative h-48 overflow-hidden"><img src={service.image} alt={service.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /><span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 text-xs font-bold text-white">0{i + 1}</span></div><div className="p-6"><h3 className="text-xl font-bold text-white">{service.name}</h3><p className="mt-2 text-sm leading-relaxed text-white/60">{service.short}</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white">Conocer más <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span></div></a></Reveal>)}</div></div></section>;
+  return (
+    <section className="relative overflow-hidden border-y border-brand-dark/20 bg-brand-deep px-5 py-20 md:px-8 md:py-28">
+      <div className="page-grid page-grid-blue opacity-30" />
+      <div className="relative mx-auto max-w-7xl">
+        <SectionIntro
+          dark
+          eyebrow="Servicios especializados"
+          title="Ingeniería para mantener tu operación en marcha."
+          description="Complementamos nuestra plataforma con servicios especializados para mantener tus equipos disponibles, confiables y bajo control."
+        />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {services.map((service, i) => (
+            <Reveal key={service.name} delay={i * 0.1}>
+              <a
+                href="/servicios"
+                className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_20px_48px_rgba(0,0,0,0.35)]"
+              >
+                <div className="relative h-[200px] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/80 via-brand-deep/20 to-transparent" />
+                  <span className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-sm font-bold text-white backdrop-blur-sm">
+                    0{i + 1}
+                  </span>
+                  <h3 className="absolute bottom-5 left-5 right-5 text-2xl font-bold text-white drop-shadow-lg">
+                    {service.name}
+                  </h3>
+                </div>
+                <div className="p-7">
+                  <p className="text-sm leading-relaxed text-white/60">{service.short}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white transition-colors group-hover:text-brand-light">
+                    Conocer más <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.35}>
+          <div className="mt-12 text-center">
+            <a
+              href="/servicios"
+              className="inline-flex items-center gap-2 text-sm font-bold text-white/80 transition-colors hover:text-white"
+            >
+              Conoce todos nuestros servicios <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }
 
 function FinalCta() {
-  return <section className="px-5 py-20 md:px-8 md:py-28"><div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand-deep px-7 py-12 md:px-14 md:py-16"><div className="absolute -right-20 -top-32 h-80 w-80 rounded-full border-[45px] border-green/20" /><div className="absolute bottom-0 right-1/3 h-20 w-20 rounded-full bg-green/30 blur-xl" /><div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.18em] text-green">Da el siguiente paso</p><h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2><p className="mt-4 max-w-xl text-base leading-relaxed text-white/65">Agenda una demostración y descubre cómo conectar la operación de tu institución.</p></div><Button href="/demo" variant="secondary" size="lg" className="shrink-0 rounded-xl bg-green px-7 py-4 text-brand-deep hover:bg-green-deep hover:text-white">Solicitar demostración <ArrowRight className="h-4 w-4" /></Button></div></div></section>;
+  return (
+    <section className="px-5 py-14 md:px-8 md:py-18">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-[#062f49] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-18px_40px_rgba(0,0,0,0.16)]">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-light/20 via-brand-light to-brand-light/20 shadow-[0_4px_14px_rgba(105,190,214,0.45)]" />
+        <div className="page-grid page-grid-blue opacity-35" />
+        <div className="absolute -right-20 -top-32 h-80 w-80 rounded-full border-[45px] border-brand-light/10" />
+        <div className="absolute -left-16 bottom-0 h-[260px] w-[260px] rounded-full bg-brand-light/12 blur-3xl" />
+        <div className="relative px-7 py-10 md:px-14 md:py-12">
+          <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-light">Da el siguiente paso</p>
+              <h2 className="mt-3 text-4xl font-bold leading-tight text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2>
+              <p className="mt-3 max-w-xl text-base leading-relaxed text-white/65">Agenda una demostración y descubre cómo conectar la operación de tu institución.</p>
+              <ul className="mt-5 space-y-2">
+                {['Recorre la plataforma con un experto','Resuelve dudas de inventario, mantenimiento y cumplimiento','Recibe una propuesta ajustada a tu institución'].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-white/80">
+                    <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />{item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs font-semibold text-white/40">Sin compromiso · Respuesta en menos de 24 h</p>
+            </div>
+            <Button
+              href="/demo"
+              className="shrink-0 rounded-xl bg-white px-8 py-4 text-sm font-bold text-brand-deep shadow-[0_8px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-light hover:text-white hover:shadow-[0_12px_32px_rgba(105,190,214,0.35)]"
+            >
+              Solicitar demostración <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function HomePage() {

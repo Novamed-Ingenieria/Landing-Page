@@ -1,7 +1,7 @@
 ---
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import WhatsAppButton from '../components/WhatsAppButton';
+import NovabotButton from '../components/NovabotButton';
 import { site } from '../lib/data';
 
 interface Props {
@@ -178,7 +178,7 @@ const currentPath = Astro.url.pathname;
     <Navbar client:load currentPath={currentPath} />
     <slot />
     <Footer />
-    <WhatsAppButton client:load />
+    <NovabotButton client:load />
   </body>
 </html>
 

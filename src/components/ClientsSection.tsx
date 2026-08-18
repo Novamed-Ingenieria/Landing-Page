@@ -16,13 +16,13 @@ function LogoSet() {
       {clients.map((c, i) => (
         <div
           key={i}
-          className="group flex shrink-0 cursor-pointer items-center justify-center rounded-2xl border border-brand-dark/10 bg-white px-6 py-6 shadow-[0_4px_14px_rgba(12,70,107,0.06)] transition-all duration-300 hover:border-brand-light hover:shadow-[0_14px_28px_rgba(12,70,107,0.14)]"
+          className="group flex h-28 w-48 shrink-0 cursor-pointer items-center justify-center rounded-2xl border border-brand-dark/10 bg-white px-6 shadow-[0_4px_14px_rgba(12,70,107,0.06)] transition-all duration-300 hover:border-brand-light hover:shadow-[0_14px_28px_rgba(12,70,107,0.14)]"
         >
           <img
             src={c.logo}
             alt={c.alt}
             loading="lazy"
-            className="h-24 w-48 object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
+            className="h-full w-full object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
           />
         </div>
       ))}

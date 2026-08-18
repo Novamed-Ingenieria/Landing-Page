@@ -3,6 +3,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   BellRing,
+  CircleCheck,
   QrCode,
   ShieldCheck,
   Workflow,
@@ -174,7 +175,39 @@ function ServicesSection() {
 }
 
 function FinalCta() {
-  return <section className="px-5 py-20 md:px-8 md:py-28"><div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand-deep px-7 py-12 md:px-14 md:py-16"><div className="absolute -right-20 -top-32 h-80 w-80 rounded-full border-[45px] border-green/20" /><div className="absolute bottom-0 right-1/3 h-20 w-20 rounded-full bg-green/30 blur-xl" /><div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.18em] text-green">Da el siguiente paso</p><h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2><p className="mt-4 max-w-xl text-base leading-relaxed text-white/65">Agenda una demostración y descubre cómo conectar la operación de tu institución.</p></div><Button href="/demo" variant="secondary" size="lg" className="shrink-0 rounded-xl bg-green px-7 py-4 text-brand-deep hover:bg-green-deep hover:text-white">Solicitar demostración <ArrowRight className="h-4 w-4" /></Button></div></div></section>;
+  return (
+    <section className="px-5 py-14 md:px-8 md:py-18">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-[#062f49] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-18px_40px_rgba(0,0,0,0.16)]">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-light/20 via-brand-light to-brand-light/20 shadow-[0_4px_14px_rgba(105,190,214,0.45)]" />
+        <div className="page-grid page-grid-blue opacity-35" />
+        <div className="absolute -right-20 -top-32 h-80 w-80 rounded-full border-[45px] border-brand-light/10" />
+        <div className="absolute -left-16 bottom-0 h-[260px] w-[260px] rounded-full bg-brand-light/12 blur-3xl" />
+        <div className="relative px-7 py-10 md:px-14 md:py-12">
+          <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-light">Da el siguiente paso</p>
+              <h2 className="mt-3 text-4xl font-bold leading-tight text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2>
+              <p className="mt-3 max-w-xl text-base leading-relaxed text-white/65">Agenda una demostración y descubre cómo conectar la operación de tu institución.</p>
+              <ul className="mt-5 space-y-2">
+                {['Recorre la plataforma con un experto','Resuelve dudas de inventario, mantenimiento y cumplimiento','Recibe una propuesta ajustada a tu institución'].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-white/80">
+                    <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />{item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs font-semibold text-white/40">Sin compromiso · Respuesta en menos de 24 h</p>
+            </div>
+            <Button
+              href="/demo"
+              className="shrink-0 rounded-xl bg-white px-8 py-4 text-sm font-bold text-brand-deep shadow-[0_8px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-light hover:text-white hover:shadow-[0_12px_32px_rgba(105,190,214,0.35)]"
+            >
+              Solicitar demostración <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function HomePage() {
