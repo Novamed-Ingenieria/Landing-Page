@@ -145,7 +145,7 @@ function Pricing() {
                     </ul>
 
                     <Button href="/demo" variant="secondary" className="w-full">
-                      Solicitar demo
+                      Solicitar demostración
                     </Button>
                   </div>
                 </Reveal>
@@ -212,7 +212,7 @@ function Pricing() {
                   </ul>
 
                   <Button href="/demo" variant="outline" className="w-full">
-                    Elegir {plan.name}
+                    Solicitar {plan.name}
                   </Button>
                 </div>
               </Reveal>
@@ -222,8 +222,8 @@ function Pricing() {
 
         <Reveal delay={0.1}>
           <p className="text-muted-foreground mt-10 text-center text-sm">
-            ¿Dudas sobre cuál elegir? Agenda una demostración y te ayudamos a identificar el plan
-            indicado.
+            ¿Dudas sobre cuál elegir? Solicita una demostración y te ayudamos a encontrar el plan
+            ideal para tu institución.
           </p>
         </Reveal>
       </div>
@@ -307,9 +307,9 @@ function Comparison() {
                             plan.popular && 'bg-brand-blue/5',
                           )}
                         >
-                          {'featureValues' in plan && (plan as any).featureValues?.[feature] ? (
+                          {'featureValues' in plan && plan.featureValues && plan.featureValues[feature] ? (
                             <span className="text-xs font-medium text-foreground">
-                              {(plan as any).featureValues[feature]}
+                              {plan.featureValues[feature]}
                             </span>
                           ) : hasFeature(plan, feature) ? (
                             <span

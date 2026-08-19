@@ -14,7 +14,7 @@ type Props = {
 };
 
 const base =
-  'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-semibold focus-visible:outline-none';
+  'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
 
 const variants: Record<Variant, string> = {
   primary:

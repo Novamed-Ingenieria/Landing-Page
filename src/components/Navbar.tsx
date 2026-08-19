@@ -50,8 +50,8 @@ export default function Navbar({ currentPath = '/' }: Props) {
             'max-w-6xl rounded-2xl border backdrop-blur-xl border-border/70'
           )}
         >
-          <a href="/" className="flex items-center" aria-label="Novamed Ingeniería — Inicio">
-            <img src="/images/Logo.png" alt="Novamed Ingeniería S.A.S." className="h-11 w-auto object-contain md:h-14" />
+          <a href="/" className="flex items-center"               aria-label="Novamed Ingeniería S.A.S. — Ir al inicio">
+            <img src="/images/Logo.png" alt="Novamed Ingeniería S.A.S." width="872" height="286" className="h-11 w-auto object-contain md:h-14" />
           </a>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -86,7 +86,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
               href="/demo"
               className="border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5 animate-demo-pulse active:scale-[0.97] inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border px-4 py-3 text-xs font-semibold uppercase tracking-wide transition-[transform,background-color,border-color,color]"
             >
-              Solicitar demo
+              Solicitar demostración
             </a>
           </div>
 

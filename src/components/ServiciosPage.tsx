@@ -52,6 +52,8 @@ function ServicesDetail() {
                   <img
                     src={s.image}
                     alt={s.name}
+                    width={640}
+                    height={240}
                     className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
@@ -76,7 +78,7 @@ function Metrology() {
         />
         <Reveal>
           <div className="flex flex-wrap justify-center gap-2.5">
-            {services[1].items.map((v) => (
+            {services[1]?.items.map((v) => (
               <span
                 key={v}
                 className="text-primary border-primary/20 bg-primary/5 rounded-full border px-4 py-2 text-sm font-medium"
@@ -140,7 +142,7 @@ function ServiciosCta() {
         <Reveal delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button href="/demo" variant="secondary" size="lg">
-              Agendar cita <ArrowRight className="h-4 w-4" />
+              Solicitar demostración <ArrowRight className="h-4 w-4" />
             </Button>
             <Button href="/plataforma" variant="outline-dark" size="lg">
               Conocer la plataforma

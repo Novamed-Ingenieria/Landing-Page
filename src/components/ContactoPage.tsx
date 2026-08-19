@@ -83,7 +83,7 @@ function ChannelCard({
   ch,
   index,
 }: {
-  ch: { icon: typeof Phone; label: string; value: string; href: string; external?: boolean; iconColor: string; bg: string; border: string };
+  ch: { icon: typeof Phone; label: string; value: string; href: string; external?: boolean; iconColor: string; bg: string };
   index: number;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -116,10 +116,10 @@ function ChannelCard({
 
 function OtherChannels() {
   const channels = [
-    { icon: Phone, label: 'Teléfono', value: site.phone, href: site.phoneHref, iconColor: 'text-green', bg: 'bg-green/10', border: 'border-l-green' },
-    { icon: Mail, label: 'Correo', value: site.email, href: `mailto:${site.email}`, iconColor: 'text-brand-blue', bg: 'bg-brand-blue/10', border: 'border-l-brand-blue' },
-    { icon: Instagram, label: 'Instagram', value: site.instagramHandle, href: site.instagram, external: true, iconColor: 'text-instagram', bg: 'bg-instagram/10', border: 'border-instagram' },
-    { icon: Globe, label: 'Web', value: 'novamedingenieria.com', href: site.url, external: true, iconColor: 'text-indigo', bg: 'bg-indigo/10', border: 'border-l-indigo' },
+    { icon: Phone, label: 'Teléfono', value: site.phone, href: site.phoneHref, iconColor: 'text-green', bg: 'bg-green/10' },
+    { icon: Mail, label: 'Correo', value: site.email, href: `mailto:${site.email}`, iconColor: 'text-brand-blue', bg: 'bg-brand-blue/10' },
+    { icon: Instagram, label: 'Instagram', value: site.instagramHandle, href: site.instagram, external: true, iconColor: 'text-instagram', bg: 'bg-instagram/10' },
+    { icon: Globe, label: 'Web', value: 'novamedingenieria.com', href: site.url, external: true, iconColor: 'text-indigo', bg: 'bg-indigo/10' },
   ];
 
   return (

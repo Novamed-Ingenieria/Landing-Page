@@ -74,11 +74,15 @@ function TabsSection() {
           title="Todas las soluciones para tu tecnología."
           description="Cuatro pilares que se conectan entre sí para que la información fluya de la operación a la decisión."
         />
-        <div className="mt-12 flex flex-wrap gap-2">
+        <div className="mt-12 flex flex-wrap gap-2" role="tablist" aria-label="Pilares de la plataforma">
           {pillars.map((p, i) => (
             <button
               key={p.id}
               type="button"
+              role="tab"
+              aria-selected={i === active}
+              aria-controls={`panel-${p.id}`}
+              id={`tab-${p.id}`}
               onClick={() => setActive(i)}
               className={`flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold transition-colors ${
                 i === active
@@ -97,6 +101,9 @@ function TabsSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
             className="mt-8 grid gap-6 rounded-3xl border border-brand-dark/10 bg-surface-muted p-6 md:grid-cols-[1.1fr_0.9fr] md:p-10"
+            role="tabpanel"
+            id={`panel-${current.id}`}
+            aria-labelledby={`tab-${current.id}`}
         >
           <div>
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-deep text-white">
@@ -128,7 +135,7 @@ function TabsSection() {
               href="/demo"
               className="mt-8 w-fit rounded-xl bg-green px-6 py-3 text-brand-deep hover:bg-green-deep hover:text-white"
             >
-              Agendar demostración <ArrowRight className="h-4 w-4" />
+              Solicitar demostración <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
           <div className="relative">

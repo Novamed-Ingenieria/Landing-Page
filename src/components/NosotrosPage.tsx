@@ -11,9 +11,9 @@ const values = [
 ];
 
 const stats = [
-  { value: '+5', label: 'años de experiencia en ingeniería biomédica' },
-  { value: 'Cali', label: 'Colombia — sede principal' },
-  { value: 'IPS', label: 'clínicas, consultorios y centros veterinarios' },
+  { value: '+5', label: 'años en ingeniería biomédica' },
+  { value: 'Cali', label: 'sede principal, Colombia' },
+  { value: '+50', label: 'instituciones atendidas' },
 ];
 
 function PageHero() {
@@ -143,7 +143,7 @@ function NosotrosCta() {
         <Reveal delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button href="/demo" size="lg">
-              Agendar cita <ArrowRight className="h-4 w-4" />
+              Solicitar demostración <ArrowRight className="h-4 w-4" />
             </Button>
             <Button href="/plataforma" variant="outline" size="lg">
               Conocer la plataforma

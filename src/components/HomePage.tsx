@@ -18,16 +18,16 @@ import { platformFunctions, services } from '../lib/data';
 const icons = { network: Workflow, qr: QrCode, alert: BellRing, wrench: Wrench, shield: ShieldCheck };
 
 function SectionIntro({ eyebrow, title, description, dark = false }: { eyebrow: string; title: string; description: string; dark?: boolean }) {
-  return <Reveal className="max-w-2xl"><div className="flex items-start gap-4"><span className={`mt-1.5 h-3 w-3 shrink-0 rounded-full ${dark ? 'bg-brand-light' : 'bg-green-deep'}`} /><div><p className={`mb-3 text-xs font-bold uppercase tracking-[0.18em] ${dark ? 'text-brand-light' : 'text-green-deep'}`}>{eyebrow}</p><h2 className={`text-3xl font-bold leading-[1.08] tracking-[-0.02em] md:text-5xl ${dark ? 'text-white' : 'text-brand-deep'}`}>{title}</h2><p className={`mt-5 max-w-xl text-base leading-relaxed md:text-lg ${dark ? 'text-white/65' : 'text-muted-foreground'}`}>{description}</p></div></div></Reveal>;
+  return <Reveal className="max-w-2xl"><div className="flex items-start gap-4"><span className={`mt-1.5 h-3 w-3 shrink-0 rounded-full ${dark ? 'bg-brand-light' : 'bg-green-deep'}`} /><div><p className={`mb-3 text-xs font-bold uppercase tracking-[0.18em] ${dark ? 'text-brand-light' : 'text-green-deep'}`}>{eyebrow}</p><h2 className={`text-3xl font-bold leading-[1.08] tracking-[-0.03em] md:text-5xl ${dark ? 'text-white' : 'text-brand-deep'}`}>{title}</h2><p className={`mt-5 max-w-xl text-base leading-relaxed md:text-lg ${dark ? 'text-white/65' : 'text-muted-foreground'}`}>{description}</p></div></div></Reveal>;
 }
 
 function Hero() {
-  return <section className="relative overflow-hidden bg-white px-5 pb-16 pt-32 text-brand-deep md:px-8 md:pb-24 md:pt-40"><div className="page-grid page-grid-blue" /><Parallax speed={-0.15} className="absolute -right-28 -top-32"><div className="h-[620px] w-[620px] rounded-full bg-brand-light/10 blur-3xl" /></Parallax><Parallax speed={0.1} className="absolute bottom-[-12rem] left-[-8rem]"><div className="h-[420px] w-[420px] rounded-full border-[70px] border-brand-light/20" /></Parallax><div className="absolute inset-x-0 bottom-0 h-2 animate-glow-line bg-gradient-to-r from-brand-dark/10 via-brand-light/60 to-brand-dark/15 shadow-[0_-5px_16px_rgba(12,70,107,0.12)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]"><div className="relative z-10"><Reveal mount><p className="mb-6 inline-flex items-center gap-2.5 rounded-md border border-brand-blue/30 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-deep shadow-[0_2px_8px_rgba(12,70,107,0.08)]">Gestión integral para tu institución</p></Reveal><Reveal mount delay={0.08}><h1 className="font-sans max-w-3xl text-5xl font-bold uppercase leading-[1.08] tracking-[-0.04em] text-graphite md:text-6xl xl:text-7xl"><span className="block whitespace-nowrap">Toda tu</span><span className="block whitespace-nowrap">gestión.</span><span className="block whitespace-nowrap text-brand-blue">Una sola</span><span className="block whitespace-nowrap text-brand-blue">plataforma.</span></h1></Reveal><Reveal mount delay={0.16}><p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">Centraliza la información, organiza tus procesos y gestiona el cumplimiento de tu institución desde un solo lugar.</p></Reveal><div className="mt-8 flex flex-wrap items-center gap-3"><Button href="/demo" size="lg" className="rounded-xl bg-brand-dark px-7 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(12,70,107,0.3)] hover:bg-brand-dark/90">Solicitar demostración</Button><Button href="/plataforma" variant="outline" size="lg" className="rounded-xl border-brand-blue/30 px-7 py-4 text-sm font-bold uppercase tracking-wider text-brand-deep hover:border-brand-blue/60 hover:bg-brand-blue/5">Conocer plataforma</Button></div></div><HeroDashboard /></div></section>;
+  return <section className="relative overflow-hidden bg-white px-5 pb-16 pt-32 text-brand-deep md:px-8 md:pb-24 md:pt-40"><div className="page-grid page-grid-blue" /><Parallax speed={-0.15} className="absolute -right-28 -top-32"><div className="h-[620px] w-[620px] rounded-full bg-brand-light/10 blur-3xl" /></Parallax><Parallax speed={0.1} className="absolute bottom-[-12rem] left-[-8rem]"><div className="h-[420px] w-[420px] rounded-full border-[70px] border-brand-light/20" /></Parallax><div className="absolute inset-x-0 bottom-0 h-2 animate-glow-line bg-gradient-to-r from-brand-dark/10 via-brand-light/60 to-brand-dark/15 shadow-[0_-5px_16px_rgba(12,70,107,0.12)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]"><div className="relative z-10"><Reveal mount><p className="mb-6 inline-flex items-center gap-2.5 rounded-md border border-brand-blue/30 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-deep shadow-[0_2px_8px_rgba(12,70,107,0.08)]">Gestión integral para tu institución</p></Reveal><Reveal mount delay={0.08}><h1 className="font-sans max-w-3xl text-5xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-graphite md:text-6xl xl:text-7xl"><span className="block whitespace-nowrap">Toda tu</span><span className="block whitespace-nowrap">gestión.</span><span className="block whitespace-nowrap text-brand-blue">Una sola</span><span className="block whitespace-nowrap text-brand-blue">plataforma.</span></h1></Reveal><Reveal mount delay={0.16}><p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">Centraliza la información, organiza tus procesos y gestiona el cumplimiento de tu institución desde un solo lugar.</p></Reveal><div className="mt-8 flex flex-wrap items-center gap-3"><Button href="/demo" size="lg" className="rounded-xl bg-brand-dark px-7 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(12,70,107,0.3)] hover:bg-brand-dark/90">Solicitar demostración</Button><Button href="/plataforma" variant="outline" size="lg" className="rounded-xl border-brand-blue/30 px-7 py-4 text-sm font-bold uppercase tracking-wider text-brand-deep hover:border-brand-blue/60 hover:bg-brand-blue/5">Conocer plataforma</Button></div></div><HeroDashboard /></div></section>;
 }
 
 function HeroDashboard() {
   const prefersReduced = useReducedMotion();
-  return <div className="relative mx-auto min-h-[390px] w-full max-w-[610px] md:min-h-[500px]"><Parallax speed={-0.05} className="absolute -top-16 left-1/2 -translate-x-1/2"><div className="h-[430px] w-[430px] rounded-full border-[55px] border-brand-light/15" /></Parallax><motion.div initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.92, y: 30, filter: 'blur(12px)' }} animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: prefersReduced ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 pt-8 md:pt-10"><div className="rounded-[2rem] border-2 border-white bg-white/80 p-1.5 shadow-[0_22px_50px_rgba(12,70,107,0.2)] ring-1 ring-brand-dark/10"><video src="/videos/Demo.mp4" poster="/images/Logo.png" autoPlay muted loop playsInline controls preload="metadata" className="block w-full rounded-[1.5rem] border border-brand-dark/10 bg-white" /></div></motion.div></div>;
+  return <div className="relative mx-auto min-h-[390px] w-full max-w-[610px] md:min-h-[500px]"><Parallax speed={-0.05} className="absolute -top-16 left-1/2 -translate-x-1/2"><div className="h-[430px] w-[430px] rounded-full border-[55px] border-brand-light/15" /></Parallax><motion.div initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.92, y: 30, filter: 'blur(12px)' }} animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: prefersReduced ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 pt-8 md:pt-10"><div className="rounded-[2rem] border-2 border-white bg-white/80 p-1.5 shadow-[0_22px_50px_rgba(12,70,107,0.2)] ring-1 ring-brand-dark/10"><video src="/videos/Demo.mp4" poster="/images/Logo.png" autoPlay muted loop playsInline controls preload="metadata" fetchPriority="high" className="block w-full rounded-[1.5rem] border border-brand-dark/10 bg-white" /></div></motion.div></div>;
 }
 
 function TrustBar() {
@@ -39,7 +39,7 @@ function TrustBar() {
       <div className="absolute -bottom-16 -left-12 h-[200px] w-[200px] rounded-full border-[35px] border-brand-light/8" />
       <div className="relative mx-auto max-w-4xl text-center">
         <Reveal>
-          <h2 className="text-3xl font-bold uppercase leading-[1.08] tracking-[-0.02em] text-white md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-white md:text-4xl lg:text-5xl">
             Gestiona, controla y cumple desde un solo lugar.
           </h2>
         </Reveal>
@@ -82,7 +82,7 @@ function FunctionsSection() {
               description="Centraliza información, procesos y cumplimiento en un solo lugar."
             />
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {platformFunctions.map((fn, i) => {
               const Icon = icons[fn.icon as keyof typeof icons] ?? Workflow;
               const s = cardStyles[i] ?? cardStyles[0];
@@ -97,7 +97,7 @@ function FunctionsSection() {
                       <span className="text-xs font-bold text-brand-deep/20">0{i + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold leading-tight">{fn.title}</h3>
+                      <h3 className="text-xl font-bold leading-snug">{fn.title}</h3>
                       <p className="mt-2.5 text-sm leading-relaxed text-brand-deep/55">{fn.short}</p>
                     </div>
                   </a>
@@ -114,7 +114,7 @@ function FunctionsSection() {
                   <ArrowUpRight className="h-5 w-5 text-white/40 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">Explorar todo</h3>
+                  <h3 className="text-xl font-bold leading-snug">Explorar todas las funciones</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-white/65">Descubre todas las funcionalidades disponibles en la plataforma.</p>
                 </div>
               </a>
@@ -148,13 +148,16 @@ function ServicesSection() {
                   <img
                     src={service.image}
                     alt={service.name}
+                    width={400}
+                    height={220}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand-deep/30 to-transparent" />
                   <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-sm font-bold text-white backdrop-blur-sm">
                     0{i + 1}
                   </span>
-                  <h3 className="absolute bottom-6 left-5 right-5 text-2xl font-bold text-white drop-shadow-lg">
+                  <h3 className="absolute bottom-6 left-5 right-5 text-2xl font-bold leading-snug text-white drop-shadow-lg">
                     {service.name}
                   </h3>
                 </div>
@@ -172,9 +175,9 @@ function ServicesSection() {
           <div className="mt-14 text-center">
             <a
               href="/servicios"
-              className="inline-flex items-center gap-2.5 text-sm font-bold text-white/80 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2.5 text-sm font-bold text-white/80 transition-colors hover:text-white"
             >
-              Conoce todos nuestros servicios <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                             Conocer todos nuestros servicios <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </Reveal>
@@ -195,11 +198,11 @@ function FinalCta() {
         <Parallax speed={0.08} className="absolute -left-16 bottom-0">
           <div className="h-[260px] w-[260px] rounded-full bg-brand-light/12 blur-3xl" />
         </Parallax>
-        <div className="relative px-7 py-12 md:px-14 md:py-14">
+        <div className="relative px-7 py-14 md:px-14 md:py-14">
           <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-light">Da el siguiente paso</p>
-              <h2 className="mt-3 text-4xl font-bold uppercase leading-[1.08] tracking-[-0.02em] text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2>
+              <h2 className="mt-3 text-4xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-white md:text-5xl">Tu tecnología merece una gestión más clara.</h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-white/65 md:text-lg">Agenda una demostración y descubre cómo conectar la operación de tu institución.</p>
               <ul className="mt-6 space-y-3">
                 {['Recorre la plataforma con un experto','Resuelve dudas de inventario, mantenimiento y cumplimiento','Recibe una propuesta ajustada a tu institución'].map((item) => (

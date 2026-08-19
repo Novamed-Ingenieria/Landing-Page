@@ -19,7 +19,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} {site.legalName}</p>
           <div className="flex flex-wrap items-center gap-4">
             {legalLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition-colors hover:text-white/80">
+              <a key={link.label} href={link.href} className="py-2 transition-colors hover:text-white/80">
                 {link.label}
               </a>
             ))}

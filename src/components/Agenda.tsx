@@ -134,7 +134,7 @@ export default function Agenda() {
       });
       setSubmitted(true);
     } catch {
-      setError('Ocurrió un error al enviar. Intenta escribirnos por WhatsApp o correo.');
+      setError('No se pudo enviar tu solicitud. Verifica tu conexión e intenta de nuevo, o escríbenos por WhatsApp.');
     } finally {
       setSending(false);
     }
@@ -228,7 +228,7 @@ export default function Agenda() {
                         key={slot}
                         type="button"
                         disabled={isUnavailable}
-                        aria-label={`${slot} ${isUnavailable ? '(no disponible)' : ''}`}
+                        aria-label={`${slot} ${isUnavailable ? '(no disponible)' : '(disponible)'}`}
                         onClick={() => {
                           setSelectedTime(slot);
                           setStep(3);
@@ -285,7 +285,7 @@ export default function Agenda() {
                       value={form.name}
                       onChange={(e) => set('name', e.target.value)}
                       placeholder="Tu nombre"
-                      className="border-border bg-background focus:border-secondary w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export default function Agenda() {
                       value={form.email}
                       onChange={(e) => set('email', e.target.value)}
                       placeholder="nombre@institucion.com"
-                      className="border-border bg-background focus:border-secondary w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export default function Agenda() {
                       value={form.phone}
                       onChange={(e) => set('phone', e.target.value)}
                       placeholder="+57 300 000 0000"
-                      className="border-border bg-background focus:border-secondary w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export default function Agenda() {
                       value={form.institution}
                       onChange={(e) => set('institution', e.target.value)}
                       placeholder="Nombre de la institución"
-                      className="border-border bg-background focus:border-secondary w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -369,7 +369,7 @@ export default function Agenda() {
                       onChange={(e) => set('message', e.target.value)}
                       rows={3}
                       placeholder="Cuéntanos brevemente sobre tu institución y tu tecnología."
-                      className="border-border bg-background focus:border-secondary w-full resize-none rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full resize-none rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -381,11 +381,11 @@ export default function Agenda() {
                   onClick={() => setStep(2)}
                   className="text-muted-foreground hover:text-primary inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors"
                 >
-                  <ArrowLeft className="h-4 w-4" /> Atrás
+                  <ArrowLeft className="h-4 w-4" /> <span className="sr-only">Volver a elegir hora</span>Atrás
                 </button>
                 <button
                   type="submit"
-                  disabled={sending}
+                  disabled={sending || submitted}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {sending ? (
@@ -419,12 +419,12 @@ export default function Agenda() {
                 <CalendarCheck className="h-7 w-7" />
               </div>
               <h3 className="mt-4 text-xl font-bold">
-                {submitted ? 'Solicitud confirmada' : 'Revisa tu solicitud'}
+                {submitted ? 'Solicitud confirmada' : 'Resumen de tu solicitud'}
               </h3>
               <p className="text-muted-foreground mx-auto mt-2 max-w-md text-sm">
                 {submitted
-                  ? 'Hemos registrado tu solicitud. Nuestro equipo la confirmará a la brevedad por correo o WhatsApp.'
-                  : 'Confirma que los datos son correctos.'}
+                  ? 'Hemos registrado tu solicitud. Nuestro equipo te confirmará por correo o WhatsApp en menos de 24 horas.'
+                  : 'Verifica que la información sea correcta antes de enviar.'}
               </p>
 
               {selectedDay && selectedTime && (

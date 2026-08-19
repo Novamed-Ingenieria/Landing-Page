@@ -21,6 +21,8 @@ function LogoSet() {
           <img
             src={c.logo}
             alt={c.alt}
+            width={176}
+            height={96}
             loading="lazy"
             className="h-full w-full object-contain opacity-75 transition-all duration-300 group-hover:opacity-100"
           />
@@ -42,7 +44,7 @@ export default function ClientsSection() {
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-blue">
               Ellos confían en nosotros
             </p>
-            <h2 className="text-3xl font-bold uppercase leading-[1.08] tracking-[-0.02em] text-brand-deep md:text-4xl">
+            <h2 className="text-3xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-brand-deep md:text-4xl">
               Confianza que se construye
             </h2>
           </div>
