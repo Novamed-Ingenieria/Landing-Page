@@ -90,7 +90,7 @@ function Pricing() {
                   <div
                     className={cn(
                       'relative flex h-full flex-col rounded-2xl p-7',
-                      'bg-gradient-to-br from-brand-deep via-brand-dark to-[#062f49]',
+                      'bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss',
                       'text-white',
                       'shadow-[0_20px_50px_-12px_rgba(12,70,107,0.35)]',
                       'border-t-[3px] border-t-white',
@@ -418,7 +418,7 @@ function PlanesCta() {
     <section className="relative overflow-hidden px-5 py-24 md:px-8">
       <div className="mx-auto max-w-4xl">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-[#062f49] p-10 text-center shadow-[0_20px_50px_-12px_rgba(12,70,107,0.35)] inset-shadow-2xs md:p-14">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss p-10 text-center shadow-[0_20px_50px_-12px_rgba(12,70,107,0.35)] inset-shadow-2xs md:p-14">
             <div className="page-grid-blue pointer-events-none absolute inset-0" />
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-light/40 to-transparent" />
             <div className="absolute -top-14 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-brand-light/10 blur-3xl" />

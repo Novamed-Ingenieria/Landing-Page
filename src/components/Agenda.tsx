@@ -188,6 +188,7 @@ export default function Agenda() {
                       setSelectedDay(day);
                       setStep(2);
                     }}
+                    aria-label={`${weekdayShort[day.getDay()]} ${day.getDate()} de ${monthNames[day.getMonth()]}`}
                     className={cn(
                       'cursor-pointer rounded-xl border px-3 py-3 text-center transition-all',
                       selectedDay?.toDateString() === day.toDateString()
@@ -219,31 +220,32 @@ export default function Agenda() {
                 {formatDate(selectedDay)} · horario Colombia
               </p>
               <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4">
-                {timeSlots.map((slot, i) => {
-                  const idx = days.findIndex((d) => d.toDateString() === selectedDay.toDateString());
-                  const isUnavailable = unavailable(idx, i);
-                  return (
-                    <button
-                      key={slot}
-                      type="button"
-                      disabled={isUnavailable}
-                      onClick={() => {
-                        setSelectedTime(slot);
-                        setStep(3);
-                      }}
-                      className={cn(
-                        'rounded-lg border px-3 py-2 text-sm font-medium transition-all',
-                        isUnavailable
-                          ? 'cursor-not-allowed border-transparent bg-muted text-muted-foreground/40 line-through'
-                          : selectedTime === slot
-                            ? 'border-primary bg-primary text-primary-foreground'
-                            : 'border-border bg-background hover:border-secondary/50',
-                      )}
-                    >
-                      {slot}
-                    </button>
-                  );
-                })}
+                  {timeSlots.map((slot, i) => {
+                    const idx = days.findIndex((d) => d.toDateString() === selectedDay.toDateString());
+                    const isUnavailable = unavailable(idx, i);
+                    return (
+                      <button
+                        key={slot}
+                        type="button"
+                        disabled={isUnavailable}
+                        aria-label={`${slot} ${isUnavailable ? '(no disponible)' : ''}`}
+                        onClick={() => {
+                          setSelectedTime(slot);
+                          setStep(3);
+                        }}
+                        className={cn(
+                          'rounded-lg border px-3 py-2 text-sm font-medium transition-all',
+                          isUnavailable
+                            ? 'cursor-not-allowed border-transparent bg-muted text-muted-foreground/40 line-through'
+                            : selectedTime === slot
+                              ? 'border-primary bg-primary text-primary-foreground'
+                              : 'border-border bg-background hover:border-secondary/50',
+                        )}
+                      >
+                        {slot}
+                      </button>
+                    );
+                  })}
               </div>
               <button
                 type="button"
@@ -274,10 +276,11 @@ export default function Agenda() {
 
               <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium">Nombre completo</label>
+                  <label htmlFor="agenda-name" className="text-sm font-medium">Nombre completo</label>
                   <div className="relative">
                     <User className="text-muted-foreground pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
                     <input
+                      id="agenda-name"
                       required
                       value={form.name}
                       onChange={(e) => set('name', e.target.value)}
@@ -288,10 +291,11 @@ export default function Agenda() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium">Correo electrónico</label>
+                  <label htmlFor="agenda-email" className="text-sm font-medium">Correo electrónico</label>
                   <div className="relative">
                     <Mail className="text-muted-foreground pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
                     <input
+                      id="agenda-email"
                       required
                       type="email"
                       value={form.email}
@@ -303,10 +307,11 @@ export default function Agenda() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium">Teléfono</label>
+                  <label htmlFor="agenda-phone" className="text-sm font-medium">Teléfono</label>
                   <div className="relative">
                     <Phone className="text-muted-foreground pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
                     <input
+                      id="agenda-phone"
                       value={form.phone}
                       onChange={(e) => set('phone', e.target.value)}
                       placeholder="+57 300 000 0000"
@@ -316,10 +321,11 @@ export default function Agenda() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-sm font-medium">Institución</label>
+                  <label htmlFor="agenda-institution" className="text-sm font-medium">Institución</label>
                   <div className="relative">
                     <Building2 className="text-muted-foreground pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
                     <input
+                      id="agenda-institution"
                       value={form.institution}
                       onChange={(e) => set('institution', e.target.value)}
                       placeholder="Nombre de la institución"
@@ -329,7 +335,7 @@ export default function Agenda() {
                 </div>
 
                 <div className="space-y-1.5 sm:col-span-2">
-                  <label className="text-sm font-medium">¿Qué te interesa?</label>
+                  <span className="text-sm font-medium">¿Qué te interesa?</span>
                   <div className="flex flex-wrap gap-2">
                     {[
                       { value: 'demo', label: 'Demostración de la plataforma' },
@@ -354,10 +360,11 @@ export default function Agenda() {
                 </div>
 
                 <div className="space-y-1.5 sm:col-span-2">
-                  <label className="text-sm font-medium">Mensaje (opcional)</label>
+                  <label htmlFor="agenda-message" className="text-sm font-medium">Mensaje (opcional)</label>
                   <div className="relative">
                     <MessageSquare className="text-muted-foreground pointer-events-none absolute left-3 top-3 h-4 w-4" />
                     <textarea
+                      id="agenda-message"
                       value={form.message}
                       onChange={(e) => set('message', e.target.value)}
                       rows={3}

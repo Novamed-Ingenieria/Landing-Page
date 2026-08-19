@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-19T00:00:00Z",
+  "title": "Design System: Novamed Ingeniería",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Deep Navy",
+        "canonical": "#0C466B",
+        "tonalRamp": ["#062F49", "#08344F", "#0A3B5A", "#0C466B", "#1A5E82", "#287699", "#368EB0", "#44A6C7"]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Navy Abyss",
+        "canonical": "#08344F",
+        "tonalRamp": ["#041D2B", "#062638", "#08344F", "#0A3D5E", "#0C466D", "#0E4F7C", "#10588B", "#12619A"]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Teal",
+        "canonical": "#197B9D",
+        "tonalRamp": ["#0D4050", "#114D63", "#155A76", "#197B9D", "#1D8DAD", "#219FBD", "#25B1CD", "#29C3DD"]
+      },
+      "secondary-light": {
+        "role": "secondary",
+        "displayName": "Light Teal",
+        "canonical": "#2894B0",
+        "tonalRamp": ["#144C58", "#1A6070", "#207488", "#2894B0", "#34A0BC", "#40ACC8", "#4CB8D4", "#58C4E0"]
+      },
+      "secondary-mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#E8F5F8",
+        "tonalRamp": ["#B8DDE5", "#C4E3EB", "#D0E9F1", "#E8F5F8", "#ECF7FA", "#F0F9FC", "#F4FBFE", "#F8FDFF"]
+      },
+      "abyss": {
+        "role": "primary",
+        "displayName": "Abyss",
+        "canonical": "#062F49",
+        "tonalRamp": ["#031826", "#041F31", "#062F49", "#08344F", "#0A3B5A", "#0C4265", "#0E4970", "#10507B"]
+      },
+      "accent-indigo": {
+        "role": "tertiary",
+        "displayName": "Indigo",
+        "canonical": "#6366F1",
+        "tonalRamp": ["#3730A3", "#4338CA", "#4F46E5", "#6366F1", "#818CF8", "#A5B4FC", "#C7D2FE", "#E0E7FF"]
+      },
+      "accent-emerald": {
+        "role": "tertiary",
+        "displayName": "Emerald",
+        "canonical": "#10B981",
+        "tonalRamp": ["#065F46", "#047857", "#059669", "#10B981", "#34D399", "#6EE7B7", "#A7F3D0", "#D1FAE5"]
+      },
+      "alert": {
+        "role": "semantic",
+        "displayName": "Alert Red",
+        "canonical": "#C2472E",
+        "tonalRamp": ["#7F1D1D", "#991B1B", "#B91C1C", "#C2472E", "#DC2626", "#EF4444", "#F87171", "#FCA5A5"]
+      },
+      "warn": {
+        "role": "semantic",
+        "displayName": "Warning Amber",
+        "canonical": "#C08A1E",
+        "tonalRamp": ["#78350F", "#92400E", "#B45309", "#C08A1E", "#D97706", "#F59E0B", "#FBBF24", "#FDE68A"]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#17232B",
+        "tonalRamp": ["#0B1216", "#101920", "#17232B", "#1E2D37", "#253743", "#2C414F", "#334B5B", "#3A5567"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines only — once per page, maximum impact." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings — the structural workhorse of page hierarchy." },
+      "title": { "displayName": "Title", "purpose": "Card titles, feature names, FAQ questions — scannable bold text." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, descriptions, general reading content." },
+      "body-lg": { "displayName": "Body Large", "purpose": "Hero descriptions and lead paragraphs — larger for emphasis." },
+      "label": { "displayName": "Label", "purpose": "Eyebrow tags, section badges, metadata — always uppercase." }
+    },
+    "shadows": [
+      { "name": "elevation-1", "value": "0 1px 2px rgba(12,70,107,0.06), 0 1px 3px rgba(12,70,107,0.06)", "purpose": "Resting cards and subtle surface separation." },
+      { "name": "elevation-2", "value": "0 6px 16px rgba(12,70,107,0.09), 0 2px 6px rgba(12,70,107,0.07)", "purpose": "Default buttons, focused cards, standard interactive elevation." },
+      { "name": "elevation-3", "value": "0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1)", "purpose": "Hovered cards, navbar, elevated interactive states." },
+      { "name": "elevation-4", "value": "0 28px 56px rgba(12,70,107,0.16), 0 10px 20px rgba(12,70,107,0.12)", "purpose": "Hero elements, modals, peak elevation." },
+      { "name": "pricing-popular", "value": "0 20px 50px -12px rgba(12,70,107,0.35)", "purpose": "Popular pricing card — elevated and prominent." }
+    ],
+    "motion": [
+      { "name": "reveal-ease", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Standard easing for scroll-reveal animations." },
+      { "name": "hover-lift", "value": "all 300ms ease", "purpose": "Card hover transition — combined shadow + translate." },
+      { "name": "nav-active", "value": "layout animation via framer-motion layoutId", "purpose": "Active nav indicator slides between items." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary call-to-action. Deep navy background, white text, shadow elevation.",
+      "html": "<a href=\"/demo\" class=\"ds-btn-primary\">Solicitar demostración</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #0C466B; color: #fff; padding: 14px 28px; border-radius: 0.875rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; box-shadow: 0 6px 16px rgba(12,70,107,0.09), 0 2px 6px rgba(12,70,107,0.07); transition: all 300ms ease; cursor: pointer; } .ds-btn-primary:hover { background: rgba(12,70,107,0.87); box-shadow: 0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1); transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #197B9D; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary action. Teal background for emphasis on dark surfaces.",
+      "html": "<a href=\"/demo\" class=\"ds-btn-secondary\">Solicitar demo</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #197B9D; color: #fff; padding: 14px 28px; border-radius: 0.875rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; box-shadow: 0 6px 16px rgba(12,70,107,0.09), 0 2px 6px rgba(12,70,107,0.07); transition: all 300ms ease; cursor: pointer; } .ds-btn-secondary:hover { background: rgba(25,123,157,0.9); box-shadow: 0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1); transform: translateY(-1px); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Tertiary action on light surfaces. Transparent with navy text and border.",
+      "html": "<a href=\"/plataforma\" class=\"ds-btn-outline\">Conocer más</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #0C466B; padding: 14px 28px; border: 1px solid rgba(12,70,107,0.25); border-radius: 0.875rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 300ms ease; cursor: pointer; } .ds-btn-outline:hover { border-color: rgba(12,70,107,0.5); background: rgba(12,70,107,0.05); }"
+    },
+    {
+      "name": "Elevated Card",
+      "kind": "card",
+      "refersTo": "card-elevated",
+      "description": "Standard content card with layered shadow and hover lift.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Feature Title</h3><p class=\"ds-card-desc\">Description text goes here.</p></div>",
+      "css": ".ds-card { background: #fff; color: #17232B; padding: 28px; border-radius: 1.125rem; border: 1px solid rgba(205,214,220,0.7); box-shadow: 0 1px 2px rgba(12,70,107,0.06), 0 1px 3px rgba(12,70,107,0.06); transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease; } .ds-card:hover { box-shadow: 0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1); transform: translateY(-2px); border-color: rgba(25,123,157,0.3); } .ds-card-title { font-size: 1.125rem; font-weight: 700; line-height: 1.3; margin-bottom: 8px; } .ds-card-desc { font-size: 0.875rem; line-height: 1.6; color: rgba(23,35,43,0.6); }"
+    },
+    {
+      "name": "Feature Card with Top Border",
+      "kind": "card",
+      "refersTo": "feature-card-accent",
+      "description": "Platform feature card with colored top border accent and icon.",
+      "html": "<a href=\"/plataforma\" class=\"ds-feature-card\"><div class=\"ds-feature-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5\"/></svg></div><h3 class=\"ds-feature-title\">Trazabilidad conectada</h3><p class=\"ds-feature-desc\">Actualiza la información una vez y mantenla disponible en toda la plataforma.</p></a>",
+      "css": ".ds-feature-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; padding: 24px; border-radius: 1rem; border: 1px solid rgba(23,35,43,0.1); border-top: 3px solid #197B9D; background: #fff; color: #08344F; text-decoration: none; transition: all 300ms ease; } .ds-feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(12,70,107,0.12); } .ds-feature-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 0.75rem; background: rgba(25,123,157,0.1); color: #197B9D; } .ds-feature-title { font-size: 1.25rem; font-weight: 700; margin-top: 16px; } .ds-feature-desc { font-size: 0.875rem; line-height: 1.6; color: rgba(8,52,79,0.6); margin-top: 8px; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": "section-header",
+      "description": "Reusable section opener with eyebrow pill, heading, and description.",
+      "html": "<div class=\"ds-section-header\"><span class=\"ds-eyebrow\">LA PLATAFORMA</span><h2 class=\"ds-section-title\">Una plataforma para conectar toda la gestión.</h2><p class=\"ds-section-desc\">Centraliza información, procesos y cumplimiento en un solo lugar.</p></div>",
+      "css": ".ds-section-header { max-width: 42rem; margin: 0 auto; text-align: center; } .ds-eyebrow { display: inline-flex; align-items: center; padding: 4px 14px; border-radius: 9999px; background: rgba(25,123,157,0.12); color: #197B9D; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; } .ds-section-title { font-size: clamp(1.875rem, 4vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #17232B; margin-bottom: 16px; } .ds-section-desc { font-size: 1.125rem; line-height: 1.6; color: rgba(23,35,43,0.6); max-width: 36rem; margin: 0 auto; }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": "navbar",
+      "description": "Fixed floating navigation pill with backdrop blur.",
+      "html": "<header class=\"ds-nav-header\"><nav class=\"ds-nav\"><a href=\"/\" class=\"ds-nav-logo\">Novamed</a><div class=\"ds-nav-links\"><a href=\"/\" class=\"ds-nav-link ds-nav-active\">Inicio</a><a href=\"/plataforma\" class=\"ds-nav-link\">Plataforma</a><a href=\"/planes\" class=\"ds-nav-link\">Planes</a></div><a href=\"/demo\" class=\"ds-nav-cta\">Solicitar demo</a></nav></header>",
+      "css": ".ds-nav-header { position: fixed; inset-x: 0; top: 0; z-index: 50; padding: 12px; } .ds-nav { display: flex; align-items: center; justify-content: space-between; max-width: 72rem; margin: 0 auto; height: 72px; padding: 0 20px; border-radius: 1rem; border: 1px solid rgba(205,214,220,0.7); background: rgba(255,255,255,0.95); backdrop-filter: blur(24px); box-shadow: 0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1); } .ds-nav-logo { font-weight: 700; font-size: 1.25rem; color: #08344F; text-decoration: none; } .ds-nav-links { display: flex; gap: 4px; } .ds-nav-link { padding: 8px 12px; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(23,35,43,0.7); text-decoration: none; transition: color 200ms; } .ds-nav-link:hover, .ds-nav-active { color: #0C466B; } .ds-nav-cta { background: #0C466B; color: #fff; padding: 12px 16px; border-radius: 0.875rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; transition: all 300ms; } .ds-nav-cta:hover { background: rgba(12,70,107,0.9); }"
+    },
+    {
+      "name": "FAQ Accordion",
+      "kind": "custom",
+      "refersTo": "faq-accordion",
+      "description": "Expandable question with left-border accent and rotating indicator.",
+      "html": "<details class=\"ds-faq\"><summary class=\"ds-faq-summary\">¿Qué es la plataforma?<span class=\"ds-faq-icon\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></span></summary><p class=\"ds-faq-answer\">Es una plataforma para la gestión de tecnología biomédica.</p></details>",
+      "css": ".ds-faq { border-radius: 0.75rem; border: 1px solid rgba(205,214,220,0.5); border-left: 3px solid #197B9D; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: box-shadow 300ms; } .ds-faq:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); } .ds-faq-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px; font-size: 0.875rem; font-weight: 600; color: #17232B; cursor: pointer; list-style: none; } .ds-faq-summary::-webkit-details-marker { display: none; } .ds-faq-icon { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; border-radius: 9999px; background: rgba(25,123,157,0.1); color: #197B9D; transition: transform 300ms; } .ds-faq[open] .ds-faq-icon { transform: rotate(180deg); } .ds-faq-answer { padding: 0 20px 20px; font-size: 0.875rem; line-height: 1.6; color: rgba(23,35,43,0.6); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Precision Dashboard",
+    "overview": "The design system embodies institutional precision meets modern clarity — like a well-calibrated instrument dashboard. Every visual decision flows from this metaphor: surfaces are organized and purposeful, data feels connected and alive, and trust is conveyed through engineering rather than decoration.\n\nThe personality is professional without being cold, technical without being alienating. Depth is achieved through layered shadows and tonal shifts rather than flat minimalism. The system feels engineered — each component has a clear role, each color communicates function, and the overall density balances information richness with scanability.",
+    "keyCharacteristics": [
+      "Deep institutional navy as the anchoring presence, vibrant teal as the connecting thread",
+      "Layered depth through ambient shadows and tonal gradients",
+      "Tactile interactive elements that respond and lift",
+      "Grid overlays as a recurring texture reinforcing the connected network feeling",
+      "Uppercase eyebrows and labels creating consistent information hierarchy",
+      "Dark gradient sections creating dramatic contrast between light and deep navy"
+    ],
+    "rules": [
+      { "name": "The Teal Accent Rule", "body": "The light teal (#2894B0) is used on ≤15% of any given screen. Its rarity as a glow, blur, or highlight is what makes it feel alive rather than decorative.", "section": "colors" },
+      { "name": "The Gradient Depth Rule", "body": "Dark sections always use a three-stop gradient (abyss → dark → deep) never a flat fill. This creates the instrument panel depth that defines the system's character.", "section": "colors" },
+      { "name": "The Eyebrow Rule", "body": "Every major section opens with an uppercase label in teal or brand-blue, set in a pill-shaped badge. This is the system's information architecture signature.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Cards rest at elevation level 1. They lift to level 2 on hover with a simultaneous -2px translate-Y. This micro-interaction is the system's primary tactile feedback.", "section": "elevation" },
+      { "name": "The Tinted Shadow Rule", "body": "All shadows use the primary navy rgba(12,70,107,...) rather than neutral black. This keeps the depth feeling cohesive with the brand palette.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use the three-stop navy gradient for all dark sections — never flat fills",
+      "Do apply the page-grid overlay in hero and dark sections at 20–40% opacity",
+      "Do use uppercase tracking-wide labels as section openers — they're the system's signature",
+      "Do use tinted navy shadows (rgba(12,70,107,...)) — never neutral black shadows",
+      "Do keep the teal accent scarce — it should feel like a highlight, not a wash",
+      "Do lift cards on hover with both shadow elevation and -2px translateY",
+      "Do use decorative blur orbs (brand-light at low opacity) as background texture"
+    ],
+    "donts": [
+      "Don't use flat dark backgrounds — always apply the gradient depth",
+      "Don't exceed 15% teal coverage on any single screen",
+      "Don't use neutral black box-shadows — always tint with the brand navy",
+      "Don't skip the eyebrow label on section headings — it's structural, not decorative",
+      "Don't use circular corners on cards or buttons — the system's geometry is rounded-rectangle",
+      "Don't place primary-colored elements on dark gradient backgrounds — use outline-dark or secondary variants instead",
+      "Don't flatten the navbar into a full-width bar — it stays as a floating pill"
+    ]
+  }
+}

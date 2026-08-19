@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { cn } from '../lib/utils';
 
@@ -13,17 +14,17 @@ type Props = {
 };
 
 const base =
-  'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-200 focus-visible:outline-none';
+  'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-semibold focus-visible:outline-none';
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-3)] hover:-translate-y-px',
+    'bg-primary text-primary-foreground shadow-[var(--elevation-2)]',
   secondary:
-    'bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-3)] hover:-translate-y-px',
+    'bg-secondary text-secondary-foreground shadow-[var(--elevation-2)]',
   outline:
-    'border border-primary/25 text-primary hover:border-primary/50 hover:bg-primary/5',
+    'border border-primary/25 text-primary',
   'outline-dark':
-    'border border-white/30 text-white hover:bg-white/10',
+    'border border-white/30 text-white',
 };
 
 const sizes: Record<Size, string> = {
@@ -38,12 +39,17 @@ export default function Button({
   size = 'md',
   className,
 }: Props) {
+  const prefersReduced = useReducedMotion();
+
   return (
-    <a
+    <motion.a
       href={href}
       className={cn(base, variants[variant], sizes[size], className)}
+      whileHover={prefersReduced ? undefined : { y: -2, boxShadow: 'var(--elevation-3)' }}
+      whileTap={prefersReduced ? undefined : { scale: 0.97 }}
+      transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </a>
+    </motion.a>
   );
 }

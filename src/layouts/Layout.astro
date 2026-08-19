@@ -38,15 +38,15 @@ const currentPath = Astro.url.pathname;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${siteUrl}/images/logo-horizontal.png`} />
+    <meta property="og:image" content={`${siteUrl}/images/Logo.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${siteUrl}/images/logo-horizontal.png`} />
+    <meta name="twitter:image" content={`${siteUrl}/images/Logo.png`} />
 
-    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/icons/Favicon.ico" />
     <link rel="canonical" href={canonicalUrl} />
 
     <title>{title}</title>
@@ -58,20 +58,22 @@ const currentPath = Astro.url.pathname;
       rel="stylesheet"
     />
 
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    <script is:inline>
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "xxxxxxx");
-    </script>
+    {import.meta.env.PUBLIC_GA4_ID && import.meta.env.PUBLIC_GA4_ID !== 'G-XXXXXXXXXX' && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA4_ID}`}></script>
+        <script is:inline set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${import.meta.env.PUBLIC_GA4_ID}');`} />
+      </>
+    )}
+    {import.meta.env.PUBLIC_CLARITY_ID && import.meta.env.PUBLIC_CLARITY_ID !== 'xxxxxxx' && (
+      <script is:inline set:html={`(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "${import.meta.env.PUBLIC_CLARITY_ID}");`} />
+    )}
 
     <script
       type="application/ld+json"
@@ -174,7 +176,18 @@ const currentPath = Astro.url.pathname;
       })}
     />
   </head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MMKWRSDC');</script>
+  <!-- End Google Tag Manager -->
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMKWRSDC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Navbar client:load currentPath={currentPath} />
     <slot />
     <Footer />
@@ -193,22 +206,15 @@ const currentPath = Astro.url.pathname;
     --color-foreground: hsl(var(--foreground));
     --color-card: hsl(var(--card));
     --color-card-foreground: hsl(var(--card-foreground));
-    --color-popover: hsl(var(--popover));
-    --color-popover-foreground: hsl(var(--popover-foreground));
     --color-primary: hsl(var(--primary));
     --color-primary-foreground: hsl(var(--primary-foreground));
     --color-secondary: hsl(var(--secondary));
     --color-secondary-foreground: hsl(var(--secondary-foreground));
     --color-muted: hsl(var(--muted));
     --color-muted-foreground: hsl(var(--muted-foreground));
-    --color-accent: hsl(var(--accent));
-    --color-accent-foreground: hsl(var(--accent-foreground));
-    --color-destructive: hsl(var(--destructive));
-    --color-destructive-foreground: hsl(var(--destructive-foreground));
     --color-border: hsl(var(--border));
-    --color-input: hsl(var(--input));
     --color-ring: hsl(var(--ring));
-     --color-ink: hsl(var(--ink));
+
      --color-brand-dark: #0c466b;
      --color-brand-deep: #08344f;
      --color-brand-blue: #197b9d;
@@ -224,6 +230,10 @@ const currentPath = Astro.url.pathname;
      --color-warn: #c08a1e;
      --color-warn-soft: #fbf1dc;
      --color-graphite: #17232b;
+     --color-surface-alt: #f7f8f8;
+     --color-surface-muted: #f5f6f7;
+     --color-brand-abyss: #062f49;
+     --color-instagram: #E1306C;
 
     --radius-sm: 0.375rem;
     --radius-md: 0.625rem;
@@ -250,20 +260,10 @@ const currentPath = Astro.url.pathname;
     --card: 0 0% 100%;
     --card-foreground: 205 55% 16%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 205 55% 16%;
-
     --muted: 205 30% 95%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 192 55% 94%;
-    --accent-foreground: 203 70% 20%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 98%;
-
     --border: 205 20% 89%;
-    --input: 205 20% 89%;
     --ring: 192 63% 42%;
 
     /* Deep navy for dark sections */
@@ -314,9 +314,6 @@ const currentPath = Astro.url.pathname;
       [style*='animation'] {
         animation: none !important;
       }
-      * {
-        transition-duration: 0.01ms !important;
-      }
       html {
         scroll-behavior: auto;
       }
@@ -362,21 +359,21 @@ const currentPath = Astro.url.pathname;
     position: absolute;
     inset: 0;
     pointer-events: none;
-    --grid-line: hsl(var(--primary) / 0.1);
+    --grid-line: hsl(var(--primary) / 0.02);
     background-image:
       linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 52px 52px;
+    background-size: 80px 80px;
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, transparent 30%, black 100%);
     mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, transparent 30%, black 100%);
   }
 
   .page-grid-green {
-    --grid-line: rgb(25 123 157 / 0.1);
+    --grid-line: rgb(25 123 157 / 0.02);
   }
 
   .page-grid-blue {
-    --grid-line: rgb(40 148 176 / 0.1);
+    --grid-line: rgb(40 148 176 / 0.02);
   }
 
   .card-elevated-sm {
@@ -389,6 +386,16 @@ const currentPath = Astro.url.pathname;
     box-shadow: var(--elevation-3);
     transform: translateY(-2px);
     border-color: hsl(var(--secondary) / 0.3);
+  }
+
+  .card-hover-glow {
+    transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease;
+  }
+
+  .card-hover-glow:hover {
+    box-shadow: 0 12px 32px rgba(12, 70, 107, 0.14);
+    transform: translateY(-6px);
+    border-color: rgba(12, 70, 107, 0.15);
   }
 
   @keyframes demo-pulse {
@@ -405,8 +412,39 @@ const currentPath = Astro.url.pathname;
     animation: demo-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
+  @keyframes glow-line-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .animate-glow-line {
+    animation: glow-line-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+
+  .animate-dot-pulse {
+    animation: dot-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .animate-demo-pulse {
+    .animate-demo-pulse,
+    .animate-glow-line,
+    .animate-dot-pulse,
+    .animate-shimmer {
       animation: none !important;
     }
   }

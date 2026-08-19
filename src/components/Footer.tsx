@@ -8,7 +8,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-gradient-to-br from-[#062f49] via-brand-dark to-brand-deep">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-gradient-to-br from-brand-abyss via-brand-dark to-brand-deep">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-light/40 to-transparent" />
       <div className="page-grid page-grid-blue opacity-20" />
       <div className="absolute -right-24 -top-20 h-[260px] w-[260px] rounded-full bg-brand-light/10 blur-3xl" />

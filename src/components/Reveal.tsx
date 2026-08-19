@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type Props = {
@@ -6,6 +6,8 @@ type Props = {
   delay?: number;
   y?: number;
   x?: number;
+  scale?: number;
+  blur?: number;
   className?: string;
   once?: boolean;
   mount?: boolean;
@@ -14,18 +16,36 @@ type Props = {
 export default function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 32,
   x = 0,
+  scale = 0.96,
+  blur = 8,
   className,
   once = true,
   mount = false,
 }: Props) {
+  const prefersReduced = useReducedMotion();
+
+  const target = prefersReduced
+    ? { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' }
+    : { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' };
+
+  const initial = prefersReduced
+    ? { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' }
+    : { opacity: 0, y, x, scale, filter: `blur(${blur}px)` };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y, x }}
-      {...(mount ? { animate: { opacity: 1, y: 0, x: 0 } } : { whileInView: { opacity: 1, y: 0, x: 0 } })}
-      viewport={{ once, margin: '-80px' }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={initial}
+      {...(mount
+        ? { animate: target }
+        : { whileInView: target })}
+      viewport={{ once, margin: '-60px' }}
+      transition={{
+        duration: prefersReduced ? 0 : 0.8,
+        delay: prefersReduced ? 0 : delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       className={className}
     >
       {children}

@@ -214,7 +214,6 @@ type PlatformFunction = {
   icon: string;
   title: string;
   short: string;
-  description: string;
 };
 
 export const platformFunctions: PlatformFunction[] = [
@@ -223,40 +222,30 @@ export const platformFunctions: PlatformFunction[] = [
     icon: 'network',
     title: 'Trazabilidad conectada',
     short: 'Actualiza la información una vez y mantenla disponible en toda la plataforma.',
-    description:
-      'Cuando cambia la ubicación, el estado o un dato de un equipo, la información relacionada permanece sincronizada: inventario, hoja de vida, cronograma y registros. Sin duplicar trabajo ni actualizar documentos por separado.',
   },
   {
     id: 'qr',
     icon: 'qr',
     title: 'Identificación mediante QR',
     short: 'Accede rápidamente a la información de cada equipo desde cualquier lugar.',
-    description:
-      'Escanea el código QR de un equipo y accede de inmediato a su hoja de vida, reportes, manuales e información de calibración o verificación cuando corresponda.',
   },
   {
     id: 'novedades',
     icon: 'alert',
     title: 'Reporte de novedades',
     short: 'Registra novedades y mantén informado al responsable correspondiente.',
-    description:
-      'Reporta novedades asociadas a un equipo —del paciente, médica, de mantenimiento u otra incidencia— y dirígelas al responsable de la institución.',
   },
   {
     id: 'ordenes',
     icon: 'wrench',
     title: 'Órdenes de trabajo',
     short: 'Asigna, realiza seguimiento y cierra las actividades relacionadas con tus equipos.',
-    description:
-      'Convierte una novedad o actividad en una orden de trabajo: asignación, responsable, seguimiento y cierre, todo desde la plataforma.',
   },
   {
     id: 'cumplimiento',
     icon: 'shield',
     title: 'Control y cumplimiento',
     short: 'Organiza procesos, trazabilidad y documentación para facilitar el cumplimiento.',
-    description:
-      'Facilita la organización de inventario, documentación, seguimiento y auditoría para los procesos de habilitación y gestión de tecnología.',
   },
 ];
 

@@ -96,7 +96,7 @@ function TabsSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mt-8 grid gap-6 rounded-3xl border border-brand-dark/10 bg-[#f5f6f7] p-6 md:grid-cols-[1.1fr_0.9fr] md:p-10"
+            className="mt-8 grid gap-6 rounded-3xl border border-brand-dark/10 bg-surface-muted p-6 md:grid-cols-[1.1fr_0.9fr] md:p-10"
         >
           <div>
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-deep text-white">
@@ -105,12 +105,12 @@ function TabsSection() {
             <h3 className="mt-6 max-w-md text-2xl font-bold leading-snug text-brand-deep md:text-3xl">
               {current.title}
             </h3>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-600 md:text-base">
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">
               {current.desc}
             </p>
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
               {current.points.map((point, j) => (
-                <p key={point} className="flex items-start gap-2 text-sm text-slate-600">
+                <p key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <span
                     className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${
                       pillarTones[j % pillarTones.length] === 'green'
@@ -144,7 +144,7 @@ function TabsSection() {
               <ul className="mt-4 space-y-3">
                 {current.points.map((point, j) => (
                   <li key={point} className="flex items-center justify-between gap-3 text-xs">
-                    <span className="text-slate-600">{point}</span>
+                    <span className="text-muted-foreground">{point}</span>
                     <span
                       className={`h-2 w-2 shrink-0 rounded-full ${
                         pillarTones[j % pillarTones.length] === 'green'
@@ -157,9 +157,9 @@ function TabsSection() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 rounded-xl bg-[#f5f6f7] p-4 text-xs">
+              <div className="mt-5 rounded-xl bg-surface-muted p-4 text-xs">
                 <p className="font-bold text-brand-deep">Todo sincronizado</p>
-                <p className="mt-1 text-slate-500">Un cambio en un módulo se refleja en los demás.</p>
+                <p className="mt-1 text-muted-foreground">Un cambio en un módulo se refleja en los demás.</p>
               </div>
             </div>
           </div>
@@ -178,7 +178,7 @@ function IntegrationsSection() {
         <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-bold tracking-tight text-brand-deep md:text-4xl">
           Tu sistema administrativo, sin trabajo duplicado.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Conecta Novamed Ingeniería con tu ERP, HIS o plataforma actual a través de API y elimina los silos de información.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
