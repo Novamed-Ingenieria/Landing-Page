@@ -138,7 +138,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
                     href="/demo"
                     className="border-primary/30 text-primary hover:bg-primary/5 inline-flex items-center justify-center rounded-lg border px-4 py-3 text-xs font-semibold uppercase tracking-wide"
                   >
-                    Solicitar demo
+                    Solicitar demostración
                   </a>
                 </div>
               </div>
