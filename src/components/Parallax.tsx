@@ -1,4 +1,3 @@
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type Props = {
@@ -7,18 +6,10 @@ type Props = {
   className?: string;
 };
 
-export default function Parallax({ children, speed = 0.3, className }: Props) {
-  const prefersReduced = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 200]);
-
-  if (prefersReduced) {
-    return <div className={className}>{children}</div>;
-  }
-
+export default function Parallax({ children, className }: Props) {
   return (
-    <motion.div style={{ y }} className={className}>
+    <div className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
