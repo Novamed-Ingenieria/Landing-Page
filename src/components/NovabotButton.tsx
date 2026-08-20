@@ -12,7 +12,7 @@ export default function NovabotButton() {
       <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 translate-x-2 whitespace-nowrap rounded-lg bg-brand-deep px-3 py-2 text-center text-sm font-semibold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 motion-reduce:transition-none">
         ¡Contáctanos!
       </span>
-      <img src="/icons/Novabot.png" alt="Novabot" width="140" height="164" className="h-35 w-35 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)]" />
+      <img src="/icons/Novabot.png" alt="Novabot" width="140" height="164" className="novabot-breathe h-35 w-35 object-contain" />
     </a>
   );
 }

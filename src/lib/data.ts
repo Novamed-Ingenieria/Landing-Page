@@ -252,7 +252,7 @@ export const platformFunctions: PlatformFunction[] = [
 export const services = [
   {
     name: 'Mantenimiento',
-    short: 'Preventivo, correctivo y predictivo para mantener tus equipos en condiciones óptimas.',
+    short: 'Evita fallas costosas. Mantén cada equipo operativo con un programa de mantenimiento que anticipa problemas antes de que detengan tu operación.',
     description:
       'Mantenimiento de equipos biomédicos orientado a preservar su correcto funcionamiento y disponibilidad, con registro de cada intervención.',
     image: '/images/Mantenimiento.jpg',
@@ -265,7 +265,7 @@ export const services = [
   },
   {
     name: 'Metrología',
-    short: 'Servicios de medición y verificación para asegurar resultados confiables y trazables.',
+    short: 'Resultados que puedes defender. Verificamos cada variable de medida para que tus equipos diagnóstico entreguen datos confiables y trazables.',
     description:
       'Servicios de verificación de variables para asegurar la confiabilidad de los equipos de medición y uso clínico.',
     image: '/images/Metrologia.jpg',
@@ -284,7 +284,7 @@ export const services = [
   },
   {
     name: 'Comercialización',
-    short: 'Equipos biomédicos, accesorios y tecnología para las necesidades de tu institución.',
+    short: 'Tecnología que encaja con tu operación. Seleccionamos, suministramos y acompañamos la adquisición de equipos biomédicos para tu institución.',
     description:
       'Comercialización de dispositivos, accesorios y repuestos para equipos de diagnóstico, soporte vital, laboratorio e imagenología.',
     image: '/images/Comercializacion.jpg',
@@ -332,5 +332,10 @@ export const faqs = [
     question: '¿Cómo solicito una demostración?',
     answer:
       'Usa la agenda en la página de Demo, escríbenos por WhatsApp al +57 322 694 2370 o al correo novamedingenieria@gmail.com.',
+  },
+  {
+    question: '¿Puedo cambiar de plan en cualquier momento?',
+    answer:
+      'Sí. Puedes escalar o ajustar tu plan a medida que tu institución crece, conservando la información ya registrada de tus equipos.',
   },
 ];

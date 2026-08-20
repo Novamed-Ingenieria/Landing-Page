@@ -2,7 +2,7 @@ import { cn } from '../lib/utils';
 import Reveal from './Reveal';
 
 type Props = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: 'center' | 'left';
@@ -22,14 +22,16 @@ export default function SectionHeader({
 
   return (
     <Reveal className={cn('max-w-2xl space-y-4', alignCls, className)}>
-      <span
-        className={cn(
-          'inline-flex items-center rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider',
-          dark ? 'bg-white/10 text-white/90' : 'bg-secondary/12 text-secondary',
-        )}
-      >
-        {eyebrow}
-      </span>
+      {eyebrow && (
+        <span
+          className={cn(
+            'inline-flex items-center rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-wider',
+            dark ? 'bg-white/10 text-white/90' : 'bg-secondary/12 text-secondary',
+          )}
+        >
+          {eyebrow}
+        </span>
+      )}
       <h2
         className={cn(
           'text-3xl font-bold leading-tight md:text-4xl',

@@ -310,7 +310,16 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       outline-offset: 2px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+  @keyframes success-pop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .success-pop {
+    animation: success-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
       [style*='animation'] {
         animation: none !important;
       }
@@ -336,9 +345,9 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   .section-dark {
     position: relative;
     background:
-      radial-gradient(70rem 46rem at 82% -12%, hsl(var(--secondary) / 0.35), transparent 60%),
-      radial-gradient(52rem 44rem at -12% 110%, hsl(var(--secondary) / 0.2), transparent 62%),
-      linear-gradient(180deg, hsl(var(--ink)), hsl(var(--primary)));
+      radial-gradient(70rem 46rem at 82% -12%, hsl(var(--secondary) / 0.3), transparent 55%),
+      radial-gradient(52rem 44rem at -12% 110%, hsl(var(--secondary) / 0.15), transparent 55%),
+      linear-gradient(180deg, #062f49 0%, #0c466b 50%, #08344f 100%);
     color: hsl(var(--primary-foreground));
   }
 
@@ -359,43 +368,102 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     position: absolute;
     inset: 0;
     pointer-events: none;
-    --grid-line: hsl(var(--primary) / 0.02);
+    --grid-line: hsl(var(--primary) / 0.10);
     background-image:
       linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 80px 80px;
+    background-size: 50px 50px;
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, transparent 30%, black 100%);
     mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, transparent 30%, black 100%);
   }
 
   .page-grid-green {
-    --grid-line: rgb(25 123 157 / 0.02);
+    --grid-line: rgb(25 123 157 / 0.10);
   }
 
   .page-grid-blue {
-    --grid-line: rgb(40 148 176 / 0.02);
+    --grid-line: rgb(40 148 176 / 0.10);
+  }
+
+  .page-grid-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    --grid-line: hsl(var(--primary) / 0.16);
+    --grid-line-fine: hsl(var(--primary) / 0.07);
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to right, var(--grid-line-fine) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line-fine) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    -webkit-mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, transparent 25%, black 100%);
+    mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, transparent 25%, black 100%);
   }
 
   .card-elevated-sm {
     box-shadow: var(--elevation-1);
     border: 1px solid hsl(var(--border) / 0.7);
-    transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease;
+    transition: box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1), transform 350ms cubic-bezier(0.22, 1, 0.36, 1), border-color 350ms ease;
   }
 
   .card-elevated-sm:hover {
     box-shadow: var(--elevation-3);
-    transform: translateY(-2px);
-    border-color: hsl(var(--secondary) / 0.3);
+    transform: translateY(-3px) scale(1.01);
+    border-color: hsl(var(--secondary) / 0.35);
+  }
+
+  .card-elevated-sm:active {
+    transform: translateY(-1px) scale(0.995);
+    transition-duration: 100ms;
   }
 
   .card-hover-glow {
-    transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease;
+    transition: box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1), transform 350ms cubic-bezier(0.22, 1, 0.36, 1), border-color 350ms ease;
   }
 
   .card-hover-glow:hover {
-    box-shadow: 0 12px 32px rgba(12, 70, 107, 0.14);
-    transform: translateY(-6px);
-    border-color: rgba(12, 70, 107, 0.15);
+    box-shadow: 0 16px 40px rgba(12, 70, 107, 0.16);
+    transform: translateY(-4px) scale(1.01);
+    border-color: rgba(12, 70, 107, 0.2);
+  }
+
+  .card-hover-glow:active {
+    transform: translateY(-1px) scale(0.995);
+    transition-duration: 100ms;
+  }
+
+  .fn-card {
+    transition: box-shadow 350ms cubic-bezier(0.22, 1, 0.36, 1), transform 350ms cubic-bezier(0.22, 1, 0.36, 1), border-color 350ms ease;
+  }
+  .fn-card:hover {
+    box-shadow: var(--hover-shadow, 0 16px 40px rgba(12, 70, 107, 0.18));
+    border-color: var(--hover-border, rgba(12, 70, 107, 0.2));
+    transform: translateY(-3px) scale(1.01);
+  }
+  .fn-card:active {
+    transform: translateY(-1px) scale(0.995);
+    transition-duration: 100ms;
+  }
+
+  .video-hover {
+    transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .video-hover:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 32px 64px rgba(12, 70, 107, 0.28), 0 0 0 1px rgba(40, 148, 176, 0.2);
+  }
+  .video-hover:active {
+    transform: translateY(-2px) scale(1.005);
+    transition-duration: 120ms;
+  }
+
+  @keyframes novabot-breathe {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+    50% { transform: scale(1.04); filter: drop-shadow(0 6px 18px rgba(16,185,129,0.35)); }
+  }
+  .novabot-breathe {
+    animation: novabot-breathe 3s ease-in-out infinite;
   }
 
   @keyframes demo-pulse {
@@ -421,6 +489,76 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     animation: glow-line-pulse 3s ease-in-out infinite;
   }
 
+  @keyframes glow-line-slide {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .animate-glow-slide {
+    background-size: 200% 100%;
+    animation: glow-line-slide 6s linear infinite;
+  }
+
+  /* Grain overlay for dark sections */
+  .grain-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+
+  /* Fade edges for carousels */
+  .carousel-fade-left::before,
+  .carousel-fade-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .carousel-fade-left::before {
+    left: 0;
+    background: linear-gradient(to right, #f7f8f8, transparent);
+  }
+  .carousel-fade-right::after {
+    right: 0;
+    background: linear-gradient(to left, #f7f8f8, transparent);
+  }
+
+  /* Section glow separator */
+  .glow-separator {
+    position: relative;
+  }
+  .glow-separator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(40, 148, 176, 0.3), rgba(25, 123, 157, 0.5), rgba(40, 148, 176, 0.3), transparent);
+    z-index: 1;
+  }
+
+  /* Pricing shimmer */
+  @keyframes pricing-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .pricing-shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 75%, transparent 100%);
+    background-size: 200% 100%;
+    animation: pricing-shimmer 4s ease-in-out infinite;
+  }
+
   @keyframes dot-pulse {
     0%, 100% { transform: scale(1); opacity: 0.8; }
     50% { transform: scale(1.3); opacity: 1; }
@@ -443,9 +581,16 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   @media (prefers-reduced-motion: reduce) {
     .animate-demo-pulse,
     .animate-glow-line,
+    .animate-glow-slide,
     .animate-dot-pulse,
-    .animate-shimmer {
+    .animate-shimmer,
+    .novabot-breathe,
+    .success-pop,
+    .pricing-shimmer {
       animation: none !important;
+    }
+    .video-hover:hover {
+      transform: none;
     }
   }
 </style>

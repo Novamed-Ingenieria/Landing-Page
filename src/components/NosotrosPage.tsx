@@ -1,4 +1,4 @@
-import { ArrowRight, Target, Eye, Sparkles, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import Reveal from './Reveal';
 import Button from './Button';
@@ -10,18 +10,16 @@ const values = [
   'Conocimiento técnico especializado',
 ];
 
-const stats = [
-  { value: '+5', label: 'años en ingeniería biomédica' },
-  { value: 'Cali', label: 'sede principal, Colombia' },
-  { value: '+50', label: 'instituciones atendidas' },
-];
+const valueDots = ['bg-emerald-400', 'bg-brand-light', 'bg-amber-400', 'bg-indigo-400'];
 
 function PageHero() {
   return (
-    <section className="relative overflow-hidden px-5 pb-14 pt-28 text-center md:px-8 md:pt-36">
+    <section className="relative overflow-hidden px-5 pb-16 pt-28 text-center md:px-8 md:pt-36">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="page-grid" />
-        <div className="bg-secondary/15 absolute left-1/2 top-[-20%] h-[420px] w-[680px] -translate-x-1/2 rounded-full blur-3xl" />
+        <div className="page-grid-mesh" />
+        <div className="absolute left-1/2 top-[-20%] h-[420px] w-[680px] -translate-x-1/2 rounded-full bg-brand-light/15 blur-3xl" />
+        <div className="absolute left-[-6%] bottom-[10%] h-[320px] w-[320px] rounded-full bg-indigo-400/[0.08] blur-3xl" />
+        <div className="absolute right-[-6%] bottom-[5%] h-[300px] w-[300px] rounded-full bg-emerald-400/[0.08] blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-3xl">
         <SectionHeader
@@ -36,16 +34,16 @@ function PageHero() {
 
 function MissionVision() {
   return (
-    <section className="px-5 py-12 md:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-gray-200 px-5 py-16 md:px-8">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-indigo-400 to-emerald-400" />
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-brand-blue via-indigo-400 to-emerald-400" />
+      <div aria-hidden="true" className="page-grid-mesh pointer-events-none absolute inset-0 opacity-40" />
+      <div className="relative mx-auto max-w-6xl">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="bg-card card-elevated-sm h-full rounded-2xl p-8">
-              <div className="bg-primary/10 text-primary mb-5 flex h-12 w-12 items-center justify-center rounded-xl">
-                <Target className="h-6 w-6" />
-              </div>
-              <h2 className="text-xl font-bold">Misión</h2>
-              <p className="text-muted-foreground mt-3 leading-relaxed">
+            <div className="bg-card h-full rounded-2xl border-t-[3px] border-t-brand-blue p-8 shadow-[var(--elevation-3)] md:p-10">
+              <h2 className="text-xl font-bold text-brand-blue">Misión</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
                 Brindar soluciones integrales de gestión de la tecnología, garantizando el correcto
                 funcionamiento, la fiabilidad y la eficiencia de dispositivos médicos y veterinarios
                 a través de servicios técnicos especializados, capacitación, asesoría,
@@ -55,12 +53,9 @@ function MissionVision() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="bg-card card-elevated-sm h-full rounded-2xl p-8">
-              <div className="bg-primary/10 text-primary mb-5 flex h-12 w-12 items-center justify-center rounded-xl">
-                <Eye className="h-6 w-6" />
-              </div>
-              <h2 className="text-xl font-bold">Visión</h2>
-              <p className="text-muted-foreground mt-3 leading-relaxed">
+            <div className="bg-card h-full rounded-2xl border-t-[3px] border-t-indigo p-8 shadow-[var(--elevation-3)] md:p-10">
+              <h2 className="text-xl font-bold text-indigo">Visión</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
                 Ser reconocidos en Colombia como una empresa líder en la prestación de servicios de
                 gestión integral de tecnología, por la excelencia, la innovación y la generación de
                 valor en cada proyecto, impactando positivamente en la seguridad del paciente y la
@@ -76,7 +71,12 @@ function MissionVision() {
 
 function WhoWeAre() {
   return (
-    <section className="section-dark relative overflow-hidden px-5 py-24 md:px-8">
+    <section className="section-dark grain-overlay relative overflow-hidden px-5 py-24 md:px-8">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-amber-400 to-indigo-400" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[-5%] top-[20%] h-[280px] w-[280px] rounded-full bg-brand-light/[0.10] blur-3xl" />
+        <div className="absolute right-[-5%] bottom-[15%] h-[280px] w-[280px] rounded-full bg-emerald-400/[0.07] blur-3xl" />
+      </div>
       <div className="relative mx-auto max-w-6xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
@@ -88,20 +88,11 @@ function WhoWeAre() {
               description="Desarrollamos soluciones confiables y eficientes que respaldan la operación segura y continua de los equipos, con un enfoque centrado en la calidad del servicio y el acompañamiento cercano."
             />
             <Reveal delay={0.1}>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {values.map((v) => (
+              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {values.map((v, i) => (
                   <div key={v} className="flex items-center gap-2.5 text-sm text-white/85">
-                    <Check className="text-secondary h-4 w-4 flex-shrink-0" /> {v}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {stats.map((s) => (
-                  <div key={s.label} className="text-center">
-                    <p className="text-2xl font-bold text-white md:text-3xl">{s.value}</p>
-                    <p className="mt-1 text-[11px] leading-tight text-white/50">{s.label}</p>
+                    <span className={`h-2 w-2 flex-shrink-0 rounded-full ${valueDots[i]}`} />
+                    {v}
                   </div>
                 ))}
               </div>
@@ -109,10 +100,7 @@ function WhoWeAre() {
           </div>
 
           <Reveal delay={0.15} x={20}>
-            <div className="bg-white/5 border-white/10 rounded-2xl border p-8">
-              <div className="bg-secondary/20 text-secondary mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
-                <Sparkles className="h-6 w-6" />
-              </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <h3 className="text-lg font-semibold text-white">Propuesta de valor</h3>
               <p className="mt-3 text-sm leading-relaxed text-white/70">
                 Combinamos una plataforma para gestionar la información y la trazabilidad de tu
@@ -130,20 +118,26 @@ function WhoWeAre() {
 
 function NosotrosCta() {
   return (
-    <section className="px-5 py-24 text-center md:px-8">
-      <div className="mx-auto max-w-2xl space-y-6">
+    <section className="relative overflow-hidden bg-surface-alt px-5 py-24 text-center md:px-8">
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-brand-blue via-brand-light to-indigo-400" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="page-grid-mesh opacity-30" />
+        <div className="absolute left-[-6%] top-[20%] h-[280px] w-[280px] rounded-full bg-brand-light/[0.10] blur-3xl" />
+        <div className="absolute right-[-6%] bottom-[15%] h-[260px] w-[260px] rounded-full bg-emerald-400/[0.07] blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-2xl space-y-6">
         <Reveal>
-          <h2 className="text-3xl font-bold md:text-4xl">Hablemos de tu institución</h2>
+          <h2 className="text-3xl font-bold text-brand-deep md:text-4xl">Hablemos de tu institución</h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-lg text-muted-foreground">
             Agenda una demostración o una reunión y conoce cómo podemos apoyarte.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button href="/demo" size="lg">
-              Solicitar demostración <ArrowRight className="h-4 w-4" />
+            <Button href="/contacto" size="lg">
+              Contáctanos <ArrowRight className="h-4 w-4" />
             </Button>
             <Button href="/plataforma" variant="outline" size="lg">
               Conocer la plataforma

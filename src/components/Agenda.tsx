@@ -151,17 +151,29 @@ export default function Agenda() {
         <div className="hidden items-center gap-1 sm:flex">
           {stepsMeta.map((s, i) => (
             <div key={s.key} className="flex items-center gap-1">
-              {i > 0 && <span className="mx-1 h-px w-4 bg-border" />}
-              <span
+              {i > 0 && (
+                <div className="relative mx-1 h-px w-4">
+                  <span className="absolute inset-0 bg-border" />
+                  <motion.span
+                    className="absolute inset-y-0 left-0 bg-primary"
+                    initial={{ width: '0%' }}
+                    animate={{ width: step > s.key ? '100%' : '0%' }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </div>
+              )}
+              <motion.span
                 className={cn(
                   'flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold',
                   step >= s.key
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted text-muted-foreground',
                 )}
+                animate={step === s.key ? { scale: [1, 1.15, 1] } : {}}
+                transition={{ duration: 0.3 }}
               >
                 {step > s.key ? <Check className="h-3.5 w-3.5" /> : s.key}
-              </span>
+              </motion.span>
             </div>
           ))}
         </div>
@@ -285,7 +297,7 @@ export default function Agenda() {
                       value={form.name}
                       onChange={(e) => set('name', e.target.value)}
                       placeholder="Tu nombre"
-                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -301,7 +313,7 @@ export default function Agenda() {
                       value={form.email}
                       onChange={(e) => set('email', e.target.value)}
                       placeholder="nombre@institucion.com"
-                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -315,7 +327,7 @@ export default function Agenda() {
                       value={form.phone}
                       onChange={(e) => set('phone', e.target.value)}
                       placeholder="+57 300 000 0000"
-                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -329,7 +341,7 @@ export default function Agenda() {
                       value={form.institution}
                       onChange={(e) => set('institution', e.target.value)}
                       placeholder="Nombre de la institución"
-                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -369,7 +381,7 @@ export default function Agenda() {
                       onChange={(e) => set('message', e.target.value)}
                       rows={3}
                       placeholder="Cuéntanos brevemente sobre tu institución y tu tecnología."
-                      className="border-border bg-background focus:border-secondary focus-visible:outline-none w-full resize-none rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors"
+                      className="border-border bg-background focus:border-secondary focus:ring-2 focus:ring-secondary/20 w-full resize-none rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -415,7 +427,7 @@ export default function Agenda() {
               transition={{ duration: 0.3 }}
               className="text-center"
             >
-              <div className="bg-secondary/12 text-secondary mx-auto flex h-14 w-14 items-center justify-center rounded-full">
+              <div className="success-pop bg-secondary/12 text-secondary mx-auto flex h-14 w-14 items-center justify-center rounded-full">
                 <CalendarCheck className="h-7 w-7" />
               </div>
               <h3 className="mt-4 text-xl font-bold">

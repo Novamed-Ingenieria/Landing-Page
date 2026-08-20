@@ -4,30 +4,23 @@ import { Menu, X } from 'lucide-react';
 import { navLinks, site } from '../lib/data';
 import { cn } from '../lib/utils';
 
-type Props = { currentPath?: string };
-
-function ScrollProgress() {
-  const prefersReduced = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  if (prefersReduced) return null;
-  return (
-    <motion.div
-      className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-brand-light via-brand-blue to-brand-light"
-      style={{ scaleX }}
-    />
-  );
-}
-
 export default function Navbar({ currentPath = '/' }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const prefersReduced = useReducedMotion();
   const { scrollY } = useScroll();
-  const navBg = useTransform(scrollY, [0, 80], [0.95, 0.98]);
+  const navBg = useTransform(scrollY, [0, 80], [0.92, 0.98]);
   const navShadow = useTransform(
     scrollY,
     [0, 80],
-    ['0 16px 32px rgba(12,70,107,0.12), 0 4px 10px rgba(12,70,107,0.1)', '0 20px 40px rgba(12,70,107,0.18), 0 6px 12px rgba(12,70,107,0.12)']
+    [
+      '0 16px 32px rgba(12,70,107,0.08), 0 4px 10px rgba(12,70,107,0.06)',
+      '0 20px 40px rgba(12,70,107,0.16), 0 6px 12px rgba(12,70,107,0.1)',
+    ],
+  );
+  const navBorderOpacity = useTransform(scrollY, [0, 60], [0, 0.15]);
+  const navBorderBottom = useTransform(
+    navBorderOpacity,
+    (v) => `1px solid rgba(12, 70, 107, ${v})`,
   );
 
   useEffect(() => {
@@ -40,17 +33,20 @@ export default function Navbar({ currentPath = '/' }: Props) {
 
   return (
     <>
-      <ScrollProgress />
-      <header className="fixed inset-x-0 top-[3px] z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
         <motion.nav
-          style={{ backgroundColor: useTransform(navBg, (v) => `rgba(255,255,255,${v})`), boxShadow: navShadow }}
+          style={{
+            backgroundColor: useTransform(navBg, (v) => `rgba(255,255,255,${v})`),
+            boxShadow: navShadow,
+            borderBottom: navBorderBottom,
+          }}
           className={cn(
             'mx-auto flex items-center justify-between transition-all duration-300 ease-out',
             'h-[72px] px-5 md:h-20 md:px-6',
-            'max-w-6xl rounded-2xl border backdrop-blur-xl border-border/70'
+            'max-w-6xl rounded-2xl backdrop-blur-xl'
           )}
         >
-          <a href="/" className="flex items-center"               aria-label="Novamed Ingeniería S.A.S. — Ir al inicio">
+          <a href="/" className="flex items-center" aria-label="Novamed Ingeniería S.A.S. — Ir al inicio">
             <img src="/images/Logo.png" alt="Novamed Ingeniería S.A.S." width="872" height="286" className="h-11 w-auto object-contain md:h-14" />
           </a>
 
@@ -60,8 +56,8 @@ export default function Navbar({ currentPath = '/' }: Props) {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'relative rounded-lg px-3 py-2 text-sm font-semibold uppercase tracking-wide transition-colors',
-                  isActive(link.href) ? 'text-primary' : 'text-foreground/70 hover:text-primary'
+                  'relative rounded-lg px-3 py-2 text-sm font-semibold uppercase tracking-wide transition-colors duration-200',
+                  isActive(link.href) ? 'text-primary' : 'text-foreground/70 hover:text-primary',
                 )}
               >
                 {link.label}
@@ -86,13 +82,13 @@ export default function Navbar({ currentPath = '/' }: Props) {
               href="/demo"
               className="border-primary/30 text-primary hover:border-primary/60 hover:bg-primary/5 animate-demo-pulse active:scale-[0.97] inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border px-4 py-3 text-xs font-semibold uppercase tracking-wide transition-[transform,background-color,border-color,color]"
             >
-              Solicitar demostración
+                    Solicitar demo
             </a>
           </div>
 
           <button
             type="button"
-            className="bg-muted text-foreground flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg lg:hidden"
+            className="bg-muted text-foreground flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-muted/80 lg:hidden"
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
@@ -103,9 +99,9 @@ export default function Navbar({ currentPath = '/' }: Props) {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               className="mt-2 overflow-hidden rounded-2xl border border-border/70 bg-background-secondary/98 shadow-[var(--elevation-4)] backdrop-blur-xl lg:hidden"
             >
@@ -121,7 +117,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
                       'rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide transition-colors',
                       isActive(link.href)
                         ? 'bg-primary/10 text-primary'
-                        : 'text-foreground/70 hover:bg-muted hover:text-primary'
+                        : 'text-foreground/70 hover:bg-muted hover:text-primary',
                     )}
                   >
                     {link.label}
@@ -138,7 +134,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
                     href="/demo"
                     className="border-primary/30 text-primary hover:bg-primary/5 inline-flex items-center justify-center rounded-lg border px-4 py-3 text-xs font-semibold uppercase tracking-wide"
                   >
-                    Solicitar demostración
+              Solicitar demo
                   </a>
                 </div>
               </div>

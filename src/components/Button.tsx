@@ -45,8 +45,18 @@ export default function Button({
     <motion.a
       href={href}
       className={cn(base, variants[variant], sizes[size], className)}
-      whileHover={prefersReduced ? undefined : { y: -2, boxShadow: 'var(--elevation-3)' }}
-      whileTap={prefersReduced ? undefined : { scale: 0.97 }}
+      whileHover={
+        prefersReduced
+          ? undefined
+          : {
+              y: -2,
+              boxShadow:
+                variant === 'primary' || variant === 'secondary'
+                  ? 'var(--elevation-3)'
+                  : undefined,
+            }
+      }
+      whileTap={prefersReduced ? undefined : { scale: 0.97, y: 0 }}
       transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}

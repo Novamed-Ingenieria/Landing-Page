@@ -22,18 +22,17 @@ function SectionIntro({ eyebrow, title, description, dark = false }: { eyebrow: 
 }
 
 function Hero() {
-  return <section className="relative overflow-hidden bg-white px-5 pb-16 pt-32 text-brand-deep md:px-8 md:pb-24 md:pt-40"><div className="page-grid page-grid-blue" /><Parallax speed={-0.15} className="absolute -right-28 -top-32"><div className="h-[620px] w-[620px] rounded-full bg-brand-light/10 blur-3xl" /></Parallax><Parallax speed={0.1} className="absolute bottom-[-12rem] left-[-8rem]"><div className="h-[420px] w-[420px] rounded-full border-[70px] border-brand-light/20" /></Parallax><div className="absolute inset-x-0 bottom-0 h-2 animate-glow-line bg-gradient-to-r from-brand-dark/10 via-brand-light/60 to-brand-dark/15 shadow-[0_-5px_16px_rgba(12,70,107,0.12)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]"><div className="relative z-10"><Reveal mount><p className="mb-6 inline-flex items-center gap-2.5 rounded-md border border-brand-blue/30 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-deep shadow-[0_2px_8px_rgba(12,70,107,0.08)]">Gestión integral para tu institución</p></Reveal><Reveal mount delay={0.08}><h1 className="font-sans max-w-3xl text-5xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-graphite md:text-6xl xl:text-7xl"><span className="block whitespace-nowrap">Toda tu</span><span className="block whitespace-nowrap">gestión.</span><span className="block whitespace-nowrap text-brand-blue">Una sola</span><span className="block whitespace-nowrap text-brand-blue">plataforma.</span></h1></Reveal><Reveal mount delay={0.16}><p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">Centraliza la información, organiza tus procesos y gestiona el cumplimiento de tu institución desde un solo lugar.</p></Reveal><div className="mt-8 flex flex-wrap items-center gap-3"><Button href="/demo" size="lg" className="rounded-xl bg-brand-dark px-7 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(12,70,107,0.3)] hover:bg-brand-dark/90">Solicitar demostración</Button><Button href="/plataforma" variant="outline" size="lg" className="rounded-xl border-brand-blue/30 px-7 py-4 text-sm font-bold uppercase tracking-wider text-brand-deep hover:border-brand-blue/60 hover:bg-brand-blue/5">Conocer plataforma</Button></div></div><HeroDashboard /></div></section>;
+  return <section className="relative overflow-hidden bg-white px-5 pb-16 pt-32 text-brand-deep md:px-8 md:pb-24 md:pt-40"><div className="page-grid page-grid-blue" /><Parallax speed={-0.15} className="absolute -right-28 -top-32"><div className="h-[620px] w-[620px] rounded-full bg-brand-light/10 blur-3xl" /></Parallax><Parallax speed={0.1} className="absolute bottom-[-12rem] left-[-8rem]"><div className="h-[420px] w-[420px] rounded-full border-[70px] border-brand-light/20" /></Parallax>      <div className="absolute inset-x-0 bottom-0 h-2 animate-glow-slide bg-gradient-to-r from-brand-dark/10 via-brand-light/60 to-brand-dark/10 shadow-[0_-5px_16px_rgba(12,70,107,0.12)]" /><div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]"><div className="relative z-10"><Reveal mount><p className="mb-6 inline-flex items-center gap-2.5 rounded-md border border-brand-blue/30 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-deep shadow-[0_2px_8px_rgba(12,70,107,0.08)]">Gestión integral para tu institución</p></Reveal><Reveal mount delay={0.08}><h1 className="font-sans max-w-3xl text-5xl font-bold uppercase leading-[1.08] tracking-[-0.03em] text-graphite md:text-6xl lg:text-[3.4rem] xl:text-7xl"><span className="block">Toda tu</span><span className="block">gestión.</span><span className="block text-brand-blue">Una sola</span><span className="block text-brand-blue">plataforma.</span></h1></Reveal><Reveal mount delay={0.16}><p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">Centraliza la información, organiza tus procesos y gestiona el cumplimiento de tu institución desde un solo lugar.</p></Reveal><div className="mt-8 flex flex-wrap items-center gap-3"><Button href="/demo" size="lg" className="rounded-xl bg-brand-dark px-7 py-4 text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(12,70,107,0.3)] hover:bg-brand-dark/90">Solicitar demostración</Button><Button href="/plataforma" variant="outline" size="lg" className="rounded-xl border-brand-blue/30 px-7 py-4 text-sm font-bold uppercase tracking-wider text-brand-deep hover:border-brand-blue/60 hover:bg-brand-blue/5">Conocer plataforma</Button></div></div><HeroDashboard /></div></section>;
 }
 
 function HeroDashboard() {
   const prefersReduced = useReducedMotion();
-  return <div className="relative mx-auto min-h-[390px] w-full max-w-[610px] md:min-h-[500px]"><Parallax speed={-0.05} className="absolute -top-16 left-1/2 -translate-x-1/2"><div className="h-[430px] w-[430px] rounded-full border-[55px] border-brand-light/15" /></Parallax><motion.div initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.92, y: 30, filter: 'blur(12px)' }} animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: prefersReduced ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 pt-8 md:pt-10"><div className="rounded-[2rem] border-2 border-white bg-white/80 p-1.5 shadow-[0_22px_50px_rgba(12,70,107,0.2)] ring-1 ring-brand-dark/10"><video src="/videos/Demo.mp4" poster="/images/Logo.png" autoPlay muted loop playsInline controls preload="metadata" fetchPriority="high" className="block w-full rounded-[1.5rem] border border-brand-dark/10 bg-white" /></div></motion.div></div>;
+  return <div className="relative mx-auto min-h-[390px] w-full max-w-[610px] md:min-h-[500px]"><Parallax speed={-0.05} className="absolute -top-16 left-1/2 -translate-x-1/2"><div className="h-[430px] w-[430px] rounded-full border-[55px] border-brand-light/15" /></Parallax><motion.div initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.92, y: 30, filter: 'blur(12px)' }} animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: prefersReduced ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }} className="relative z-10 pt-8 md:pt-10"><div className="rounded-[2rem] border-2 border-white bg-white/80 p-1.5 shadow-[0_22px_50px_rgba(12,70,107,0.2)] ring-1 ring-brand-dark/10"><img src="/images/Tarjeta.jpg" alt="Plataforma Novamed Ingeniería" className="block w-full rounded-[1.5rem] border border-brand-dark/10 bg-white object-cover" /></div></motion.div></div>;
 }
 
 function TrustBar() {
   return (
-    <section className="relative overflow-hidden border-y border-brand-dark/20 bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss px-5 py-16 text-white md:px-8 md:py-20">
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-light/20 via-brand-light to-brand-light/20 shadow-[0_4px_14px_rgba(105,190,214,0.45)]" />
+    <section className="relative overflow-hidden border-y border-brand-dark/20 bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss px-5 py-14 text-white md:px-8 md:py-[72px] grain-overlay">
       <div className="page-grid page-grid-blue opacity-40" />
       <div className="absolute -right-24 -top-20 h-[280px] w-[280px] animate-dot-pulse rounded-full bg-brand-light/10 blur-3xl" />
       <div className="absolute -bottom-16 -left-12 h-[200px] w-[200px] rounded-full border-[35px] border-brand-light/8" />
@@ -55,11 +54,11 @@ function TrustBar() {
 }
 
 const cardStyles = [
-  { accent: 'brand-blue', border: 'border-t-brand-blue', iconBg: 'bg-gradient-to-br from-brand-blue/15 to-brand-blue/5', iconText: 'text-brand-blue', hoverBg: 'hover:bg-brand-blue/[0.04]' },
-  { accent: 'indigo', border: 'border-t-indigo', iconBg: 'bg-gradient-to-br from-indigo/15 to-indigo/5', iconText: 'text-indigo', hoverBg: 'hover:bg-indigo/[0.04]' },
-  { accent: 'warn', border: 'border-t-warn', iconBg: 'bg-gradient-to-br from-warn/15 to-warn/5', iconText: 'text-warn', hoverBg: 'hover:bg-warn/[0.04]' },
-  { accent: 'alert', border: 'border-t-alert', iconBg: 'bg-gradient-to-br from-alert/15 to-alert/5', iconText: 'text-alert', hoverBg: 'hover:bg-alert/[0.04]' },
-  { accent: 'emerald', border: 'border-t-emerald', iconBg: 'bg-gradient-to-br from-emerald/15 to-emerald/5', iconText: 'text-emerald', hoverBg: 'hover:bg-emerald/[0.04]' },
+  { iconBg: 'bg-brand-blue', iconText: 'text-white', hoverShadow: '0 16px 40px rgba(25,123,157,0.18)', hoverBorder: 'border-brand-blue/30', cardBg: 'bg-brand-blue/[0.12]' },
+  { iconBg: 'bg-indigo', iconText: 'text-white', hoverShadow: '0 16px 40px rgba(99,102,241,0.18)', hoverBorder: 'border-indigo/30', cardBg: 'bg-indigo/[0.12]' },
+  { iconBg: 'bg-amber-500', iconText: 'text-white', hoverShadow: '0 16px 40px rgba(245,158,11,0.18)', hoverBorder: 'border-amber-500/30', cardBg: 'bg-amber-500/[0.12]' },
+  { iconBg: 'bg-alert', iconText: 'text-white', hoverShadow: '0 16px 40px rgba(194,71,46,0.18)', hoverBorder: 'border-alert/30', cardBg: 'bg-alert/[0.12]' },
+  { iconBg: 'bg-emerald', iconText: 'text-white', hoverShadow: '0 16px 40px rgba(16,185,129,0.18)', hoverBorder: 'border-emerald/30', cardBg: 'bg-emerald/[0.12]' },
 ];
 
 function FunctionsSection() {
@@ -90,10 +89,11 @@ function FunctionsSection() {
                 <Reveal key={fn.id} delay={i * 0.06}>
                   <a
                     href="/plataforma"
-                    className={`group relative flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-brand-dark/10 border-t-[4px] bg-white p-7 card-hover-glow text-brand-deep ${s.border} ${s.hoverBg}`}
+                    className={`fn-card group relative flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-brand-dark/10 bg-white p-7 text-brand-deep ${s.cardBg}`}
+                    style={{ ['--hover-shadow' as string]: s.hoverShadow, ['--hover-border' as string]: s.hoverBorder }}
                   >
                     <div className="flex items-start justify-between">
-                      <div className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 ${s.iconBg} ${s.iconText}`}><Icon className="h-6 w-6" /></div>
+                      <div className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg ${s.iconBg} ${s.iconText}`}><Icon className="h-6 w-6" /></div>
                       <span className="text-xs font-bold text-brand-deep/20">0{i + 1}</span>
                     </div>
                     <div>
@@ -107,15 +107,15 @@ function FunctionsSection() {
             <Reveal delay={0.3}>
               <a
                 href="/plataforma"
-                className="group flex h-full min-h-[220px] flex-col justify-between rounded-2xl border border-white/10 bg-brand-deep p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_32px_rgba(12,70,107,0.2)]"
+                className="group flex h-full min-h-[220px] flex-col justify-between rounded-2xl border-2 border-dashed border-brand-dark/15 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:bg-brand-blue/[0.03]"
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-white"><ArrowRight className="h-6 w-6" /></div>
-                  <ArrowUpRight className="h-5 w-5 text-white/40 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue transition-transform duration-300 group-hover:scale-110"><ArrowRight className="h-6 w-6" /></div>
+                  <ArrowUpRight className="h-5 w-5 text-brand-blue/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-blue" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold leading-snug">Explorar todas las funciones</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-white/65">Descubre todas las funcionalidades disponibles en la plataforma.</p>
+                  <h3 className="text-xl font-bold leading-snug text-brand-deep">Explorar todas las funciones</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-brand-deep/55">Descubre todas las funcionalidades disponibles en la plataforma.</p>
                 </div>
               </a>
             </Reveal>
@@ -128,7 +128,7 @@ function FunctionsSection() {
 
 function ServicesSection() {
   return (
-    <section className="relative overflow-hidden border-y border-brand-dark/20 bg-brand-deep px-5 py-20 md:px-8 md:py-28">
+    <section className="relative overflow-hidden border-y border-brand-dark/20 bg-brand-deep px-5 py-20 md:px-8 md:py-28 grain-overlay">
       <div className="page-grid page-grid-blue opacity-30" />
       <div className="relative mx-auto max-w-7xl">
         <SectionIntro
@@ -140,21 +140,21 @@ function ServicesSection() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.name} delay={i * 0.1}>
-              <a
-                href="/servicios"
-                className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-white/[0.03] shadow-[0_8px_32px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_24px_56px_rgba(0,0,0,0.4)]"
-              >
-                <div className="relative h-[220px] overflow-hidden">
+                <a
+                  href="/servicios"
+                  className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0e3d5c] transition-all duration-300 hover:border-white/20 hover:bg-[#114568] hover:shadow-[0_24px_56px_rgba(0,0,0,0.5)]"
+                >
+                <div className="relative h-[260px] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
                     width={400}
-                    height={220}
+                    height={260}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-brand-deep/30 to-transparent" />
-                  <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-sm font-bold text-white backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/40 to-transparent" />
+                  <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/20 text-sm font-bold text-white backdrop-blur-sm">
                     0{i + 1}
                   </span>
                   <h3 className="absolute bottom-6 left-5 right-5 text-2xl font-bold leading-snug text-white drop-shadow-lg">
@@ -162,7 +162,7 @@ function ServicesSection() {
                   </h3>
                 </div>
                 <div className="p-7">
-                  <p className="text-sm leading-relaxed text-white/60">{service.short}</p>
+                  <p className="text-sm leading-relaxed text-white">{service.short}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white transition-colors group-hover:text-brand-light">
                     Conocer más <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
@@ -175,7 +175,7 @@ function ServicesSection() {
           <div className="mt-14 text-center">
             <a
               href="/servicios"
-              className="group inline-flex items-center gap-2.5 text-sm font-bold text-white/80 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider text-white/80 transition-colors hover:text-white"
             >
                              Conocer todos nuestros servicios <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
@@ -188,8 +188,9 @@ function ServicesSection() {
 
 function FinalCta() {
   return (
-    <section className="px-5 py-14 md:px-8 md:py-20">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-18px_40px_rgba(0,0,0,0.16)]">
+    <section className="relative overflow-hidden px-5 py-14 md:px-8 md:py-20">
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-brand-blue via-brand-light to-indigo-400" />
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-br from-brand-deep via-brand-dark to-brand-abyss shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-18px_40px_rgba(0,0,0,0.16)] grain-overlay">
         <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-light/20 via-brand-light to-brand-light/20 shadow-[0_4px_14px_rgba(105,190,214,0.45)]" />
         <div className="page-grid page-grid-blue opacity-35" />
         <Parallax speed={-0.1} className="absolute -right-20 -top-32">
@@ -215,7 +216,7 @@ function FinalCta() {
             </div>
             <Button
               href="/demo"
-              className="shrink-0 rounded-xl bg-white px-8 py-4 text-sm font-bold text-brand-deep shadow-[0_8px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-light hover:text-white hover:shadow-[0_12px_32px_rgba(105,190,214,0.35)]"
+              className="shrink-0 rounded-xl bg-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-brand-deep shadow-[0_8px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-light hover:text-white hover:shadow-[0_12px_32px_rgba(105,190,214,0.35)]"
             >
               Solicitar demostración <ArrowRight className="h-4 w-4" />
             </Button>
